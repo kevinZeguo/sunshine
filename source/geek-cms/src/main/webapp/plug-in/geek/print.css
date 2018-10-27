@@ -1,0 +1,13 @@
+table {
+    border: 1px solid #000000;
+}
+
+tr {
+    border: 1px solid #000000;
+}
+
+td {
+    font-family: '华文宋体';
+    font-size: 13px;
+    border: 1px solid #000000;
+}

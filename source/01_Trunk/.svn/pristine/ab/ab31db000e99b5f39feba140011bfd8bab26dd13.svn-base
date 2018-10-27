@@ -1,0 +1,87 @@
+var room = {};
+room.queryListUrl = "/role/list.ajax";//查询列表地址
+
+$(document).ready(function ($) {
+    //初始化基本信息
+    room.init_base();
+    //初始化列表
+    room.init_table();
+    //初始化事件
+    room.init_event();
+});
+
+//查询表格数据
+room.init_table = function () {
+    $.ajax({
+        url: "/getHData.ajax",
+        async: false,
+        data: {
+            startDate: $("#startDate").val(),
+            endDate: $("#endDate").val(),
+            env: $("#env").val()
+        },
+        success: function (data) {
+            console.log(data);
+            var rooms = data.list;
+            if (rooms != null && rooms != '' && rooms.length > 0) {
+                var roomHtml = "";
+                for (var i = 0; i < rooms.length; i++) {
+                    var room = rooms[i];
+                    roomHtml += "<tr>";
+
+                    roomHtml += "<td class=\" padding-top-bottom border-bottom\">\n" +
+                        "                        <div class=\"rpName\">" + room.typeName + "</div>\n" +
+                        "                    </td>";
+                    roomHtml += "<td class=\"padding-top-bottom border-bottom\">" + (room.badType != null ? room.badType : '--') + "</td>";
+                    roomHtml += "<td class=\" padding-top-bottom border-bottom\">" + (room.breakfast != null ? room.breakfast : '--') + "</td>";
+                    roomHtml += "<td class=\" padding-top-bottom border-bottom\">" + (room.network != null ? room.network : '--') + "</td>";
+                    roomHtml += "<td class=\" padding-top-bottom border-bottom\">" + room.priceNote + "</td>";
+                    roomHtml += "<td class=' padding-top-bottom border-bottom'>";
+                    if (room.perStatus == 0 || room.numRetainRooms == 0) {//预约状态为关闭或是房间为空，则显示满房
+                        roomHtml += " <button style='background-color:darkgray;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: 200px;' disabled>满房</button>";
+                    } else {
+                        roomHtml += "<form action='/ocn.html' type='post'>";
+                        roomHtml += "<input type='hidden' value='" + room.typeId + "' id='typeId' name='typeId'>";
+                        roomHtml += "<input type='hidden' value='" + $("#startDate").val() + "' id='orderStartDate' name='orderStartDate'>";
+                        roomHtml += "<input type='hidden' value='" + $("#endDate").val() + "' id='orderEndDate' name='orderEndDate'>";
+                        roomHtml += " <button style='background-color:#FD8B04;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: 200px;'>预订</button>";
+                        roomHtml += "</form>";
+                    }
+                    "</td>";
+                    roomHtml += "</tr>";
+                }
+                $("#roomTab").html(roomHtml);
+            } else {
+                $("#roomTab").html("<tr ><td colspan='4' class='text-weizhi4 padding-top-bottom border-bottom'>no message</td><tr>");
+            }
+        }
+    });
+}
+
+//初始化基本信息
+room.init_base = function () {
+    $('#startDate').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'zh-CN',
+        todayBtn: true,
+        startDate: new Date(),
+        autoclose: true //选择日期后自动关闭
+    });
+
+    $('#endDate').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'zh-CN',
+        todayBtn: true,
+        startDate: new Date(),
+        autoclose: true //选择日期后自动关闭
+    });
+}
+
+//初始化事件
+room.init_event = function () {
+    //添加用户
+    $("#searchRoom").click(function () {
+        room.init_table();
+    });
+
+}

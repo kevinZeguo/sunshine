@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysDepartDao" >
+  <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysDepart" >
+
+    <id column="depart_id" property="departId" jdbcType="INTEGER" />
+    <result column="depart_name" property="departName" jdbcType="VARCHAR" />
+    <result column="parent_depart_id" property="parentDepartId" jdbcType="VARCHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+    <result column="depart_level" property="departLevel" jdbcType="INTEGER" />
+    <result column="depart_order" property="departOrder" jdbcType="INTEGER" />
+    <result column="mobile" property="mobile" jdbcType="VARCHAR" />
+    <result column="fax" property="fax" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.beijing.geek.cms.sys.domain.user.SysDepart" extends="BaseResultMap" >
+    <result column="description" property="description" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    depart_id, depart_name, parent_depart_id, address, depart_level, depart_order, mobile,
+    fax, creator, created, modifier, modified, deleted
+  </sql>
+  <sql id="Blob_Column_List" >
+    description
+  </sql>
+  <select id="selectById" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_depart
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+    delete from sys_depart
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysDepart" >
+    insert into sys_depart (depart_id, depart_name, parent_depart_id,
+      address, depart_level, depart_order, 
+      mobile, fax, creator, 
+      created, modifier, modified, 
+      deleted, description)
+    values (#{departId,jdbcType=INTEGER}, #{departName,jdbcType=VARCHAR}, #{parentDepartId,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{departLevel,jdbcType=INTEGER}, #{departOrder,jdbcType=INTEGER}, 
+      #{mobile,jdbcType=VARCHAR}, #{fax,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER}, 
+      #{created,jdbcType=TIMESTAMP}, #{modifier,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=INTEGER}, #{description,jdbcType=LONGVARCHAR})
+  </insert>
+
+  <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.user.SysDepart" >
+
+    update sys_depart
+    set depart_name = #{departName,jdbcType=VARCHAR},
+      parent_depart_id = #{parentDepartId,jdbcType=VARCHAR},
+      address = #{address,jdbcType=VARCHAR},
+      depart_level = #{departLevel,jdbcType=INTEGER},
+      depart_order = #{departOrder,jdbcType=INTEGER},
+      mobile = #{mobile,jdbcType=VARCHAR},
+      fax = #{fax,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where depart_id = #{departId,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectAllDepartList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List" />
+        ,
+        <include refid="Blob_Column_List" />
+        from sys_depart
+        where deleted = 0
+    </select>
+</mapper>

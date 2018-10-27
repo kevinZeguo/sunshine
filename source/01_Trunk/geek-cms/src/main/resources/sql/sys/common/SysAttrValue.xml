@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.common.SysAttrValueDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.common.SysAttrValue">
+        <id column="attr_id" property="attrId" jdbcType="INTEGER"/>
+        <result column="attr_group_id" property="attrGroupId" jdbcType="INTEGER"/>
+        <result column="attr_code" property="attrCode" jdbcType="VARCHAR"/>
+        <result column="attr_value" property="attrValue" jdbcType="VARCHAR"/>
+        <result column="attr_order" property="attrOrder" jdbcType="INTEGER"/>
+        <result column="attr_desc" property="attrDesc" jdbcType="VARCHAR"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="modifier" property="modifier" jdbcType="INTEGER"/>
+        <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
+        <result column="deleted" property="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    attr_id, attr_group_id, attr_code, attr_value, attr_order, attr_desc, creator, created,
+    modifier, modified, deleted
+  </sql>
+    <select id="selectById" resultType="SysAttrValue" parameterType="java.lang.Integer">
+        select
+        <include refid="attr_col"/>, g.group_name attrGroupName,g.group_code attrGroupCode
+        from sys_attr_value v
+        left join sys_attr_group g on v.attr_group_id = g.attr_group_id and g.deleted = 0
+        where v.attr_id = #{attrId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+      update sys_attr_value set deleted = 1  ,modifier = #{modifier} where attr_id = #{attrId,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.common.SysAttrValue">
+        <selectKey keyProperty="attrId" resultType="Integer">
+            SELECT @@IDENTITY AS attrId
+        </selectKey>
+        insert into sys_attr_value ( attr_group_id, attr_code,
+        attr_value, attr_order, attr_desc,
+        creator, created, modifier,
+        modified, deleted)
+        values ( #{attrGroupId,jdbcType=INTEGER}, #{attrCode,jdbcType=VARCHAR},
+        #{attrValue,jdbcType=VARCHAR}, #{attrOrder,jdbcType=INTEGER}, #{attrDesc,jdbcType=VARCHAR},
+        #{creator,jdbcType=INTEGER}, now(), #{modifier,jdbcType=INTEGER},now(), 0)
+    </insert>
+
+    <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.common.SysAttrValue">
+    update sys_attr_value
+    set attr_group_id = #{attrGroupId,jdbcType=INTEGER},
+      attr_code = #{attrCode,jdbcType=VARCHAR},
+      attr_value = #{attrValue,jdbcType=VARCHAR},
+      attr_order = #{attrOrder,jdbcType=INTEGER},
+      attr_desc = #{attrDesc,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = now()
+    where attr_id = #{attrId,jdbcType=INTEGER}
+  </update>
+    <sql id="attr_col">
+        v.attr_id attrId, v.attr_group_id attrGroupId, v.attr_code attrCode, v.attr_value attrValue,
+        v.attr_order attrOrder, v.attr_desc attrDesc, v.creator creator, v.created created,
+        v.modifier modifier, v.modified modified, v.deleted deleted
+    </sql>
+
+    <select id="selectByAttrGroupCode" resultType="SysAttrValue" parameterType="java.lang.String">
+        select
+        <include refid="attr_col"/>
+        from sys_attr_value v
+        left join sys_attr_group g on v.attr_group_id = g.attr_group_id and g.deleted = 0
+        where v.deleted = 0
+        and g.group_code = #{groupCode}
+    </select>
+
+    <select id="selectAttrCountByPage" resultType="int" parameterType="AttrQueryParam">
+        select
+        count(1)
+        from sys_attr_value v
+        left join sys_attr_group g on v.attr_group_id = g.attr_group_id and g.deleted = 0
+        where v.deleted = 0
+        <if test="key != null and key != ''">
+            and (v.attr_code like #{key} or v.attr_value like #{key} )
+        </if>
+        <if test="attrGroupId != null and attrGroupId != ''">
+            and v.attr_group_id = #{attrGroupId}
+        </if>
+    </select>
+
+    <select id="selectAttrListByPage" resultType="SysAttrValue" parameterType="AttrQueryParam">
+        select
+        <include refid="attr_col"/>
+        , g.group_name attrGroupName,g.group_code attrGroupCode,
+        DATE_FORMAT(v.created,'%Y-%m-%d') createdStr
+        from sys_attr_value v
+        left join sys_attr_group g on v.attr_group_id = g.attr_group_id and g.deleted = 0
+        where v.deleted = 0
+        <if test="key != null and key != ''">
+            and (v.attr_code like #{key} or v.attr_value like #{key} )
+        </if>
+        <if test="attrGroupId != null and attrGroupId != ''">
+            and v.attr_group_id = #{attrGroupId}
+        </if>
+        order by v.attr_id desc
+        limit #{start} , #{limit}
+    </select>
+
+</mapper>

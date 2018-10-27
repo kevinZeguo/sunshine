@@ -1,0 +1,58 @@
+#set($page_title=" 密码修改")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+
+<script src="/plug-in/sys/user/editPwd.js?_dc=$!{staticVersion}"></script>
+
+<form class="form-horizontal" id="editPwdForm" role="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">修改密码<span style="font-size: 12px"></h4>
+    </div>
+    <div class="modal-body">
+        <fieldset>
+            <input type="hidden" id="userId" name="userId" value="$!{user.userId}">
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="userName"> * 原密码:</label>
+
+                <div class="col-xs-8">
+                    <input type="password" id="oldPwd" name="oldPwd" class="col-xs-12 ui-autocomplete-input"
+                           placeholder="请输入原密码" value=""/>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="password">* 新密码: </label>
+
+                <div class="col-xs-8">
+                    <input type="password" class="col-xs-12 ui-autocomplete-input" placeholder="请输入用户密码"
+                           id="newPwd"
+                           name="newPwd" value=""/>
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="confirm_password">* 重复密码: </label>
+
+                <div class="col-xs-8">
+                    <input type="password" class="col-xs-12 ui-autocomplete-input" placeholder="请输入重复密码"
+                           id="confirmNewPwd"
+                           name="confirmNewPwd" value=""/>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-sm btn-primary" type="submit" id="editPwd-submit-btn" name="editPwd-submit-btn">
+            修改
+        </button>
+        &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-white btn-info " type="button" id="editPwd-closeModal">
+            取消
+        </button>
+    </div>
+
+</form>

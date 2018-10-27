@@ -1,0 +1,258 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysFunctionDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysFunction">
+
+        <id column="function_id" property="functionId" jdbcType="INTEGER"/>
+        <result column="function_iframe" property="functionIframe" jdbcType="SMALLINT"/>
+        <result column="function_level" property="functionLevel" jdbcType="SMALLINT"/>
+        <result column="function_name" property="functionName" jdbcType="VARCHAR"/>
+        <result column="function_order" property="functionOrder" jdbcType="VARCHAR"/>
+        <result column="function_url" property="functionUrl" jdbcType="VARCHAR"/>
+        <result column="parent_function_id" property="parentFunctionId" jdbcType="INTEGER"/>
+        <result column="icon_id" property="iconId" jdbcType="VARCHAR"/>
+        <result column="functiontype" property="functiontype" jdbcType="SMALLINT"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="modifier" property="modifier" jdbcType="INTEGER"/>
+        <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
+        <result column="deleted" property="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    function_id, function_iframe, function_level, function_name, function_order, function_url, 
+    parent_function_id, icon_id, functiontype, creator, created, modifier, modified, 
+    deleted
+  </sql>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+
+        select
+        <include refid="Base_Column_List"/>
+        from sys_function
+        where function_id = #{functionId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+
+    delete from sys_function
+    where function_id = #{functionId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysFunction">
+
+    insert into sys_function (function_id, function_iframe, function_level, 
+      function_name, function_order, function_url, 
+      parent_function_id, icon_id, functiontype, 
+      creator, created, modifier, 
+      modified, deleted)
+    values (#{functionId,jdbcType=INTEGER}, #{functionIframe,jdbcType=SMALLINT}, #{functionLevel,jdbcType=SMALLINT}, 
+      #{functionName,jdbcType=VARCHAR}, #{functionOrder,jdbcType=VARCHAR}, #{functionUrl,jdbcType=VARCHAR}, 
+      #{parentFunctionId,jdbcType=INTEGER}, #{iconId,jdbcType=VARCHAR}, #{functiontype,jdbcType=SMALLINT}, 
+      #{creator,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{modifier,jdbcType=INTEGER}, 
+      #{modified,jdbcType=TIMESTAMP}, #{deleted,jdbcType=INTEGER})
+  </insert>
+    <insert id="insertSelective" parameterType="com.beijing.geek.cms.sys.domain.user.SysFunction">
+
+        insert into sys_function
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="functionId != null">
+                function_id,
+            </if>
+            <if test="functionIframe != null">
+                function_iframe,
+            </if>
+            <if test="functionLevel != null">
+                function_level,
+            </if>
+            <if test="functionName != null">
+                function_name,
+            </if>
+            <if test="functionOrder != null">
+                function_order,
+            </if>
+            <if test="functionUrl != null">
+                function_url,
+            </if>
+            <if test="parentFunctionId != null">
+                parent_function_id,
+            </if>
+            <if test="iconId != null">
+                icon_id,
+            </if>
+            <if test="functiontype != null">
+                functiontype,
+            </if>
+            <if test="creator != null">
+                creator,
+            </if>
+            <if test="created != null">
+                created,
+            </if>
+            <if test="modifier != null">
+                modifier,
+            </if>
+            <if test="modified != null">
+                modified,
+            </if>
+            <if test="deleted != null">
+                deleted,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="functionId != null">
+                #{functionId,jdbcType=INTEGER},
+            </if>
+            <if test="functionIframe != null">
+                #{functionIframe,jdbcType=SMALLINT},
+            </if>
+            <if test="functionLevel != null">
+                #{functionLevel,jdbcType=SMALLINT},
+            </if>
+            <if test="functionName != null">
+                #{functionName,jdbcType=VARCHAR},
+            </if>
+            <if test="functionOrder != null">
+                #{functionOrder,jdbcType=VARCHAR},
+            </if>
+            <if test="functionUrl != null">
+                #{functionUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="parentFunctionId != null">
+                #{parentFunctionId,jdbcType=INTEGER},
+            </if>
+            <if test="iconId != null">
+                #{iconId,jdbcType=VARCHAR},
+            </if>
+            <if test="functiontype != null">
+                #{functiontype,jdbcType=SMALLINT},
+            </if>
+            <if test="creator != null">
+                #{creator,jdbcType=INTEGER},
+            </if>
+            <if test="created != null">
+                #{created,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                #{modifier,jdbcType=INTEGER},
+            </if>
+            <if test="modified != null">
+                #{modified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleted != null">
+                #{deleted,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByIdSelective" parameterType="com.beijing.geek.cms.sys.domain.user.SysFunction">
+
+        update sys_function
+        <set>
+            <if test="functionIframe != null">
+                function_iframe = #{functionIframe,jdbcType=SMALLINT},
+            </if>
+            <if test="functionLevel != null">
+                function_level = #{functionLevel,jdbcType=SMALLINT},
+            </if>
+            <if test="functionName != null">
+                function_name = #{functionName,jdbcType=VARCHAR},
+            </if>
+            <if test="functionOrder != null">
+                function_order = #{functionOrder,jdbcType=VARCHAR},
+            </if>
+            <if test="functionUrl != null">
+                function_url = #{functionUrl,jdbcType=VARCHAR},
+            </if>
+            <if test="parentFunctionId != null">
+                parent_function_id = #{parentFunctionId,jdbcType=INTEGER},
+            </if>
+            <if test="iconId != null">
+                icon_id = #{iconId,jdbcType=VARCHAR},
+            </if>
+            <if test="functiontype != null">
+                functiontype = #{functiontype,jdbcType=SMALLINT},
+            </if>
+            <if test="creator != null">
+                creator = #{creator,jdbcType=INTEGER},
+            </if>
+            <if test="created != null">
+                created = #{created,jdbcType=TIMESTAMP},
+            </if>
+            <if test="modifier != null">
+                modifier = #{modifier,jdbcType=INTEGER},
+            </if>
+            <if test="modified != null">
+                modified = #{modified,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deleted != null">
+                deleted = #{deleted,jdbcType=INTEGER},
+            </if>
+        </set>
+        where function_id = #{functionId,jdbcType=INTEGER}
+    </update>
+    <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.user.SysFunction">
+
+    update sys_function
+    set function_iframe = #{functionIframe,jdbcType=SMALLINT},
+      function_level = #{functionLevel,jdbcType=SMALLINT},
+      function_name = #{functionName,jdbcType=VARCHAR},
+      function_order = #{functionOrder,jdbcType=VARCHAR},
+      function_url = #{functionUrl,jdbcType=VARCHAR},
+      parent_function_id = #{parentFunctionId,jdbcType=INTEGER},
+      icon_id = #{iconId,jdbcType=VARCHAR},
+      functiontype = #{functiontype,jdbcType=SMALLINT},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where function_id = #{functionId,jdbcType=INTEGER}
+  </update>
+
+    <sql id="fun_col">
+      fu.function_id as functionId,fu.function_iframe functionIframe,fu.function_level functionLevel,
+      fu.function_name functionName,fu.function_order functionOrder,fu.function_url functionUrl,
+      fu.parent_function_id parentFunctionId,fu.icon_id iconId,fu.functiontype,fu.creator,
+      fu.created,fu.modifier,fu.modified,fu.deleted ,fu.function_menu_name functionMenuName
+    </sql>
+
+    <!--查询全部菜单及子菜单-->
+    <select id="selectAllFunctionList" resultType="SysFunction">
+        select
+        <include refid="fun_col"/>,group_concat(subfu.function_id) childMenuIds ,si.iconclas as iconclas,
+        si.name as iconName , si.path as iconPath
+        from sys_function fu
+        left join sys_function subfu on fu.function_id= subfu.parent_function_id and subfu.deleted = 0
+        left join sys_icon si on si.icon_id = fu.icon_id and si.deleted = 0
+        where fu.deleted = 0
+        GROUP BY fu.function_id
+        order by fu.function_order
+    </select>
+
+    <select id="selectByFunctionUrl" resultType="SysFunction" parameterType="java.lang.String">
+        select
+        <include refid="fun_col"/>,si.iconclas as iconclas,si.name as iconName , si.path as iconPath
+        from sys_function fu
+        left join sys_icon si on si.icon_id = fu.icon_id and si.deleted = 0
+        where fu.deleted = 0
+        and fu.function_url = #{functionUrl,jdbcType=VARCHAR}
+        order by fu.function_id desc
+        limit 1
+    </select>
+
+
+    <!--查询用户有权限的菜单-->
+    <select id="selectFuncListByAuth" resultType="SysFunction" parameterType="int">
+        SELECT DISTINCT
+        <include refid="fun_col"/>
+        ,group_concat(subfu.function_id)childMenuIds,si.iconclas AS iconclas,
+        si.NAME AS iconName,si.path AS iconPath
+        FROM sys_function fu
+        LEFT JOIN sys_function subfu ON fu.function_id = subfu.parent_function_id AND subfu.deleted = 0
+        LEFT JOIN sys_icon si ON si.icon_id = fu.icon_id AND si.deleted = 0
+        left join sys_role_function rf on rf.function_id = fu.function_id and rf.deleted = 0
+        left join sys_permission sp on rf.role_id = sp.role_id and sp.deleted = 0
+        WHERE fu.deleted = 0
+        and sp.user_id = #{userId}
+        GROUP BY fu.function_id
+        ORDER BY fu.function_level, fu.function_order
+    </select>
+
+
+</mapper>

@@ -1,0 +1,35 @@
+<form id="fileUploadForm" class="hidden" id="fileData-form" enctype="multipart/form-data" method="post">
+    <input id="file" name="file" type="file"/>
+
+    <div id="fileUploadProgress">
+    ##        <div class="progress">
+    ##            <span class="bar"></span><span class="percent">0%</span>
+    ##        </div>
+        <!-- 显示已上传的文件名 -->
+        <div class="files"></div>
+        <!-- 显示已上传的图片-->
+        <div class="showimg"></div>
+    </div>
+    <input type="submit" id="uploadBtn" name="uploadBtn"/>
+</form>
+
+<form id="imgUploadForm" class="hidden" id="imgData-form" enctype="multipart/form-data" method="post">
+    <input id="img" name="file" type="file"/>
+    <input type="submit" id="uploadImg" name="uploadImg"/>
+</form>
+
+##<script type="text/javascript" src="/plug-in/ace/js/content_zoom.js"/>
+<div class="modal fade cms-modal" id="fileOpenModal" role="dialog" aria-hidden="true"
+     style="width: 600px;height: 700px">
+    <form class="form-horizontal" id="deviceForm" role="form">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal">
+                <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        </div>
+        <div class="modal-body" id="addDeviceBody">
+            <img src="" id="fileImg" style="width: 100%;height: 100%">
+        </div>
+    </form>
+</div>
+
+

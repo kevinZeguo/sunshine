@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijing.geek.cms.sunshine.dao.TbOrderDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sunshine.domain.TbOrder">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="init_id" jdbcType="INTEGER" property="initId"/>
+        <result column="order_num_rooms" jdbcType="INTEGER" property="orderNumRooms"/>
+        <result column="order_status" jdbcType="INTEGER" property="orderStatus"/>
+        <result column="username" jdbcType="VARCHAR" property="username"/>
+        <result column="telephone" jdbcType="VARCHAR" property="telephone"/>
+        <result column="email" jdbcType="VARCHAR" property="email"/>
+        <result column="start_date" jdbcType="TIMESTAMP" property="startDate"/>
+        <result column="end_date" jdbcType="TIMESTAMP" property="endDate"/>
+        <result column="late_arri_time" jdbcType="VARCHAR" property="lateArriTime"/>
+        <result column="sum_price" jdbcType="DOUBLE" property="sumPrice"/>
+        <result column="sum_sale_price" jdbcType="DOUBLE" property="sumSalePrice"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="c_time" jdbcType="TIMESTAMP" property="cTime"/>
+        <result column="order_date" jdbcType="TIMESTAMP" property="orderDate"/>
+        <result column="confirm_date" jdbcType="TIMESTAMP" property="confirmDate"/>
+        <result column="env" jdbcType="VARCHAR" property="env"/>
+        <result column="checkCount" jdbcType="VARCHAR" property="checkCount"/>
+        <result column="company" jdbcType="VARCHAR" property="company"/>
+        <result column="u_time" jdbcType="TIMESTAMP" property="uTime"/>
+        <result column="del_status" jdbcType="INTEGER" property="delStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+        id, type_id, init_id, order_num_rooms, order_status, username, telephone, email,
+        start_date, end_date, late_arri_time, sum_price, sum_sale_price, comment, c_time,
+        u_time, del_status,checkCount,env,order_date,confirm_date,company
+    </sql>
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_order
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+        update  tb_order set del_status = 0,u_time = now()
+        where id = #{id,jdbcType=INTEGER}
+    </delete>
+    <insert id="insert" parameterType="com.beijing.geek.cms.sunshine.domain.TbOrder">
+        <selectKey keyProperty="id" resultType="Integer">
+            SELECT @@IDENTITY AS id
+        </selectKey>
+        insert into tb_order (type_id, init_id,
+        order_num_rooms, order_status, username,
+        telephone, email, start_date,
+        end_date, late_arri_time, sum_price,
+        sum_sale_price, comment, c_time,
+        u_time, del_status,checkCount,env,confirm_date,order_date,company)
+        values (#{typeId,jdbcType=INTEGER}, #{initId,jdbcType=INTEGER},
+        #{orderNumRooms,jdbcType=INTEGER},1, #{username,jdbcType=VARCHAR},
+        #{telephone,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{startDate,jdbcType=TIMESTAMP},
+        #{endDate,jdbcType=TIMESTAMP}, #{lateArriTime,jdbcType=VARCHAR}, #{sumPrice,jdbcType=DOUBLE},
+        #{sumSalePrice,jdbcType=DOUBLE}, #{comment,jdbcType=VARCHAR}, now(),
+        now(), 1,#{checkCount},#{env},#{confirmDate},now(),#{company})
+    </insert>
+    <update id="updateById" parameterType="com.beijing.geek.cms.sunshine.domain.TbOrder">
+        update tb_order
+        set type_id = #{typeId,jdbcType=INTEGER},
+        init_id = #{initId,jdbcType=INTEGER},
+        order_num_rooms = #{orderNumRooms,jdbcType=INTEGER},
+        order_status = #{orderStatus,jdbcType=INTEGER},
+        username = #{username,jdbcType=VARCHAR},
+        telephone = #{telephone,jdbcType=VARCHAR},
+        email = #{email,jdbcType=VARCHAR},
+        start_date = #{startDate,jdbcType=TIMESTAMP},
+        end_date = #{endDate,jdbcType=TIMESTAMP},
+        late_arri_time = #{lateArriTime,jdbcType=VARCHAR},
+        sum_price = #{sumPrice,jdbcType=DOUBLE},
+        sum_sale_price = #{sumSalePrice,jdbcType=DOUBLE},
+        comment = #{comment,jdbcType=VARCHAR},
+        c_time = #{cTime,jdbcType=TIMESTAMP},
+        u_time = #{uTime,jdbcType=TIMESTAMP},
+        del_status = #{delStatus,jdbcType=INTEGER}
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <select id="selectByEmail" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_order where del_status = 1 and order_status in (1,2) and email = #{email}
+    </select>
+
+    <update id="updateStatus" parameterType="tbOrder">
+        update tb_order set order_status = #{orderStatus},confirm_date = now()
+         where id = #{id} and del_status = 1
+    </update>
+
+    <select id="selectOrderCountByPage" parameterType="RoomQueryParam" resultType="int">
+        select
+        count(distinct id)
+        from tb_order
+        where del_status = 1
+        <if test="typeId!= null and typeId> 0">
+            and type_id = #{typeId}
+        </if>
+        <if test="inStartDate!= null and inStartDate != ''">
+            and <![CDATA[start_date >=#{inStartDate}]]>
+        </if>
+
+        <if test="inEndDate!= null and inEndDate != ''">
+            and <![CDATA[start_date <= #{inEndDate}]]>
+        </if>
+
+        <if test="outStartDate!= null and outStartDate != ''">
+            and <![CDATA[end_date >= #{outStartDate}]]>
+        </if>
+
+        <if test="outEndDate!= null and outEndDate != ''">
+            and <![CDATA[end_date <= #{outEndDate}]]>
+        </if>
+
+        <if test="orderStartDate!= null and orderStartDate != ''">
+            and <![CDATA[order_date >= #{orderStartDate}]]>
+        </if>
+
+        <if test="orderEndDate!= null and orderEndDate != ''">
+            and <![CDATA[order_date <= #{orderEndDate}]]>
+        </if>
+
+        <if test="userKey != null and userKey != ''">
+            and (username like #{userKey} or telephone like #{userKey} or email like #{userKey})
+        </if>
+    </select>
+
+    <select id="selectOrderListByPage" parameterType="RoomQueryParam" resultMap="BaseResultMap">
+        select
+        tt.id, tt.type_id typeId, tt.init_id initId, tt.order_num_rooms orderNumRooms, tt.order_status orderStatus,
+        tt.username, tt.telephone, tt.email,
+        tt.start_date startDate, tt.end_date endDate, tt.late_arri_time lateArriTime, tt.sum_price sumPrice,
+        tt.sum_sale_price sumSalePrice, tt.comment, tt.c_time cTime,
+        tt.u_time uTime, tt.del_status delStatus,tt.checkCount,tt.env,tt.order_date orderDate,tt.confirm_date
+        confirmDate
+        ,rt.type_name typeName ,tt.company company
+        from tb_order tt
+        left join tb_room_type rt on tt.type_id = rt.type_id and rt.env = 'cn'
+        where tt.del_status = 1
+        <if test="typeId!= null and typeId> 0">
+            and tt.type_id = #{typeId}
+        </if>
+        <if test="inStartDate!= null and inStartDate != ''">
+            and <![CDATA[tt.start_date >=#{inStartDate}]]>
+        </if>
+
+        <if test="inEndDate!= null and inEndDate != ''">
+            and <![CDATA[tt.start_date <= #{inEndDate}]]>
+        </if>
+
+        <if test="outStartDate!= null and outStartDate != ''">
+            and <![CDATA[tt.end_date >= #{outStartDate}]]>
+        </if>
+
+        <if test="outEndDate!= null and outEndDate != ''">
+            and <![CDATA[tt.end_date <= #{outEndDate}]]>
+        </if>
+
+        <if test="orderStartDate!= null and orderStartDate != ''">
+            and <![CDATA[tt.order_date >= #{orderStartDate}]]>
+        </if>
+
+        <if test="orderEndDate!= null and orderEndDate != ''">
+            and <![CDATA[tt.order_date <= #{orderEndDate}]]>
+        </if>
+
+        <if test="userKey != null and userKey != ''">
+            and (username like #{userKey} or telephone like #{userKey} or email like #{userKey})
+        </if>
+        order by id desc
+        limit #{start} , #{limit}
+    </select>
+
+</mapper>

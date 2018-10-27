@@ -1,0 +1,49 @@
+#set($page_title=" 角色管理")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+
+<script src="/plug-in/sys/role/add.js?_dc=$!{staticVersion}"></script>
+
+<form class="form-horizontal" id="roleForm" role="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">角色管理<span style="font-size: 12px">>>#if($add == 'add')新增角色 #else
+            角色用户 #end</span></h4>
+    </div>
+    <div class="modal-body">
+        <fieldset>
+            <input type="hidden" id="roleId" name="roleId" value="$!{role.roleId}">
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="roleName"> * 角色名称:</label>
+
+                <div class="col-xs-8">
+                    <input type="text" id="roleName" name="roleName" class="col-xs-8 ui-autocomplete-input"
+                           placeholder="角色名称" value="$!{role.roleName}"/>
+
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="roleCode">* 角色编码:</label>
+
+                <div class="col-xs-8">
+                        <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入角色编码" id="roleCode"
+                               name="roleCode" value="$!{role.roleCode}"/>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-sm btn-primary" type="submit" id="submit-btn" name="submit-btn">
+            保存
+        </button>
+        &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-white btn-info " type="button" id="closeModal">
+            取消
+        </button>
+    </div>
+
+</form>

@@ -1,0 +1,44 @@
+#set($layout = "layout_sunshine_en.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">Hotel <span class="enlm">Reservations</span></div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com/en/h-index.html">Home</a> &gt; Reservations</div>
+    </div>
+    <div class="r02">
+        <input id="env" id="env" value="$!{env}" type="hidden">
+        <table>
+            <tbody>
+            <tr style="height: 50px">
+                <td>Check in：<input class="" type="text" value="$!{startDate}" name="checkindate" id="startDate">
+                    Check out：<input class="" type="text" value="$!{endDate}" name="checkoutdate" id="endDate">
+                </td>
+                <td><input
+                        style="background-color:#FD8B04;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: bolder"
+                        type="button"
+                        id="searchRoom" src="" value="Query"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="rooms" id="roomList">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr style="background-color:#ddd1a7; height:30px;">
+                <th style="width:25%;">room type</th>
+                <th style="width:15%;">bed type</th>
+                <th style="width:15%;">breakfast</th>
+                <th style="width:15%;">network</th>
+                <th style="width:15%;">rack rate (CFA)</th>
+                <th style="width:15%; text-align:center;">operation</th>
+            </tr>
+            </thead>
+            <tbody id="roomTab">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="/plug-in/public/hotel/room_en.js?_dc=$!{staticVersion}"></script>
+

@@ -1,0 +1,16 @@
+#set($layout = "layout_sunshine_fra.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">Succes par</div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com/fra/">Acceuil</a> &gt; Reservation</div>
+    </div>
+    <div class="odok">Votre succès ont présenté par courrier électronique, veuillez contacter</div>
+    <div class="oi" style="margin-top:10px; border:none">Description de la chambre</div>
+    <div class="oii" style="font-size:14px;">
+        Chambre:$!{type.typeName} - $!{type.badType}-$!{type.breakfast}<br>
+        Nombre de chambre:$!{order.orderNumRooms}entre<br>
+        Taux au total (xof):$!{sumPrice}&nbsp;<br>
+        Date d’arrivee:$!{startDate}<br>
+        Date de depart:$!{endDate}<br>
+    </div>
+</div>

@@ -1,0 +1,177 @@
+body {
+    font-family: 微软雅黑, 宋体, Arial, sans-serif !important;
+}
+
+.help-block {
+    font-family: 微软雅黑, 宋体, Arial, sans-serif !important;
+    font-size: 14px !important;
+}
+
+h4 > span {
+    font-family: 微软雅黑, 宋体, Arial, sans-serif !important;
+    font-size: 12px !important;
+}
+
+input:hover, textarea:hover, select:hover, .upload-file:hover {
+    border-color: #2b4a93
+}
+
+input[disabled]:hover, select[disabled]:hover, textarea[disabled]:hover, div.select2-container-disabled a.select2-choice:hover {
+    border-color: #ccc !important
+}
+
+.cms-modal {
+    overflow-y: hidden;
+    background-color: white;
+    margin-left: 300px;
+    margin-top: 10px;
+    border-radius: 5px;
+    width: 800px;
+    height: 600px;
+}
+
+.page-content {
+    padding: 20px 20px 2px !important;
+}
+
+.upload-file {
+    /*max-width:320px;*/
+    border: 1px solid #ccc;
+    height: 32px;
+    color: #999;
+    padding-left: 10px;
+    position: relative;
+}
+
+.upload-file input[type='file'] {
+    position: absolute;
+    width: 100%;
+    height: 32px;
+    opacity: 0;
+    left: 0;
+    top: 0;
+}
+
+.upload-file input[type='file']:hover {
+    color: #333;
+    background-color: #e6e6e6;
+    border-color: #adadad;
+}
+
+.upload-file a, .upload-file > span.btn {
+    position: absolute;
+    right: 0;
+    top: 0;
+    display: inline-block;
+    min-width: 90px;
+    height: 30px;
+    border-top: none;
+    border-right: none;
+    border-bottom: none;
+    border-radius: 0;
+    border-color: #ddd;
+}
+
+.upload-file a span {
+    position: absolute;
+    left: 20px;
+}
+
+.upload-file input[type='button'] {
+    position: absolute;
+    width: 80px;
+    height: 32px;
+    opacity: 0;
+    left: 0;
+    top: 0;
+}
+
+.upload-file input[type='button']:hover {
+    color: #333;
+    background-color: #ddd;
+    border-color: #adadad;
+}
+
+.upload-file input.file-content {
+    border: none;
+    height: 30px;
+}
+
+.upload-file span.file-content {
+    display: inline-block;
+    height: 30px;
+    overflow: hidden;
+    word-break: break-all;
+    word-wrap: break-word;
+    text-overflow: ellipsis;
+    margin-top: 5px;
+}
+
+.upload-file .help-block {
+    margin-left: 0px !important;
+}
+
+.btn-group-vertical > .btn-group:after, .btn-toolbar:after, .clearfix:after, .container-fluid:after, .container:after, .dl-horizontal dd:after, .form-horizontal .form-group:after, .modal-footer:after, .nav:after, .navbar-collapse:after, .navbar-header:after, .navbar:after, .pager:after, .panel-body:after, .row:after {
+    clear: none;
+}
+
+.nav-list > li > a {
+    font-size: 15px;
+}
+
+.search-condition {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.tab-border {
+    border: 1px solid lightgray;
+    width: 102%;
+}
+
+.search-condition {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.select2-container-multi .select2-search-choice-close {
+    top: -5px !important;
+}
+
+.progress {
+    width: 80%;
+    margin: 10px 0px -5px -12px !important;
+}
+
+.error {
+    color: red;
+    border-color:red;
+}
+
+.valid {
+    color: black;
+}
+
+.ui-jqgrid tr.footrow-ltr tr {
+    border-top-style: hidden;
+    border-top-color: white;
+    border-top-width: 0px
+}
+
+.ui-jqgrid tr.footrow-ltr td {
+    border-right-style: hidden;
+    border-right-color: white;
+    border-right-width: 0px;
+    border-top-style: hidden;
+    border-top-color: white;
+    border-top-width: 0px;
+    color: red;
+}
+
+.ui-jqgrid tr.jqgrow td{
+    white-space: nowrap !important;
+}
+
+
+
+

@@ -1,0 +1,58 @@
+#set($page_title=" 首页")
+#set($selected_menu_id='menu_task_center_index')
+<div class="main-content">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/index.html">首页</a>
+            </li>
+        </ul>
+        <!-- /.breadcrumb -->
+        <!-- /section:basics/content.searchbox -->
+    </div>
+    <div class="page-content">
+        <style>
+            .widget-body {
+                min-height: 209px;
+            }
+
+            .list-unstyled li {
+                overflow: hidden;
+                text-overflow: ellipsis; /* 当对象内文本溢出时显示省略标记(...) ；需与overflow:hidden;一起使用。*/
+                white-space: nowrap;
+            }
+
+            /*不换行 */
+        </style>
+        <h3>快速入口</h3>
+        <hr>
+        <div class="col-xs-12" style="border: 2px solid snow ">
+            <div class="col-xs-2  pricing-box" style="border:2px solid bisque;margin-left: 20px">
+                <div class=" text-center " style="margin-top: 20px;font-size: 18px;font-weight: bolder">
+                    <a href="/cms/order/index.html"> <img src="/images/client.png"
+                                                          style="width: 100px;height: 100px; border-radius:20px"></a>
+                    <br>
+                    <br>
+                    <a href="/cms/order/index.html">订单管理</a>
+                </div>
+            </div>
+            <div class="col-xs-2  pricing-box" style="border:2px solid bisque;margin-left: 20px">
+                <div class=" text-center " style="margin-top: 20px;font-size: 18px;font-weight: bolder">
+                    <a href="/cms/room/index.html"> <img src="/images/timg.jpg"
+                                                         style="width: 100px;height: 100px; border-radius:20px"></a>
+                    <br>
+                    <br>
+                    <a href="/cms/room/index.html">房间管理</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

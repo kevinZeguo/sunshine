@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>$!{page_title} - 复盛设备管理平台</title>
+
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+##    <script type="text/javascript">
+##        /*左侧菜单*/
+##        (function () {
+##            var list = bdpInfo.leftMenuList, item, iItem;
+##            #foreach($item in $leftMenuList)
+##                item = {};
+##                item.name = '$!{item.name}';
+##                item.value = '$!{item.value}';
+##                item.ext1 = '$!{item.ext1}';
+##                item.right = $!{item.right};
+##                item.list = [];
+##                #foreach($s in $item.list)
+##                    iItem = {};
+##                    iItem.right = $!{s.right};
+##                    iItem.value = '$!{s.value}';
+##                    iItem.name = '$!{s.name}';
+##                    iItem.ext1 = '$!{s.ext1}';
+##                    iItem.ext5 = '$!{s.ext5}';
+##                    item.list.push(iItem);
+##                #end
+##                list.push(item);
+##            #end
+##        })();
+##
+##    </script>
+##    <script>
+##        var selected_menu_id = '$!{selected_menu_id}';
+##        var left_menu_id = '$!{leftUrl}';
+##        var login_erp = '$!{userHolder.erp}';
+##        var no_left = true;
+##        var _bdpDomain = '$!{bdpDomain}';
+##        var _staticVersion = '$!{staticVersion}';
+##    </script>
+
+
+    <!-- 下面是公用的CSS文件 -->
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/bootstrap.min.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/font-awesome.min.css?_dc=$!{staticVersion}"/>
+
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/jquery-ui.min.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/datepicker.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/ui.jqgrid.css?_dc=$!{staticVersion}"/>
+
+    <!-- text fonts -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace-fonts.css?_dc=$!{staticVersion}"/>
+
+    <!-- ace styles -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace.min.css?_dc=$!{staticVersion}" id="main-ace-style"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace-part2.min.css?_dc=$!{staticVersion}"/>
+    <![endif]-->
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace-skins.min.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace-rtl.min.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/select2.css?_dc=$!{staticVersion}"/>
+
+    <!--[if lte IE 9]>
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace-ie.min.css?_dc=$!{staticVersion}"/>
+    <![endif]-->
+
+    <!--自定义样式-->
+    <link rel="stylesheet" href="/plug-in/geek/geek_cms.css?_dc=$!{staticVersion}"/>
+    <link rel="stylesheet" href="/plug-in/geek/ace.css?_dc=$!{staticVersion}"/>
+
+    <!-- 下面是公用的JS文件 -->
+    <!-- inline styles related to this page -->
+    <!-- ace settings handler -->
+    <script src="/page/plugin/ace/js/ace-extra.min.js?_dc=$!{staticVersion}"></script>
+
+    <!-- HTML5shiv and Respond.js for IE8 to support HTML5 elements and media queries -->
+
+    <!--[if lte IE 8]>
+    <script src="/page/plugin/ace/js/html5shiv.min.js?_dc=$!{staticVersion}"></script>
+    <script src="/page/plugin/ace/js/respond.min.js?_dc=$!{staticVersion}"></script>
+    <![endif]-->
+
+    <!-- basic scripts -->
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        <
+        script
+        src = '/page/plugin/ace/js/jquery1x.min.js?_dc=$!{staticVersion}' ></script>
+    </script>
+    <![endif]-->
+    <script src='/page/plugin/ace/js/jquery.min.js?_dc=$!{staticVersion}'></script>
+    <script src='/page/plugin/ace/js/jquery.mobile.custom.min.js'></script>
+
+    <script src="/page/plugin/ace/js/bootstrap.min.js?_dc=$!{staticVersion}"></script>
+
+    <!-- page specific plugin scripts -->
+    <script src="/page/plugin/ace/js/date-time/bootstrap-datepicker.min.js?_dc=$!{staticVersion}"></script>
+    <script src="/page/plugin/ace/js/jqGrid/jquery.jqGrid.min.js?_dc=$!{staticVersion}"></script>
+    <script src="/page/plugin/ace/js/jqGrid/i18n/grid.locale-en.js?_dc=$!{staticVersion}"></script>
+
+    <!-- ace scripts -->
+    <script src="/page/plugin/ace/js/ace-elements.min.js?_dc=$!{staticVersion}"></script>
+    <script src="/page/plugin/ace/js/ace.min.js?_dc=$!{staticVersion}"></script>
+
+    <!-- inline scripts related to this page -->
+    <!-- the following scripts are used in demo only for onpage help and you don't need them -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace.onpage-help.css?_dc=$!{staticVersion}"/>
+
+    <script src="/page/plugin/ace/js/ace/elements.onpage-help.js"></script>
+    <script src="/page/plugin/ace/js/ace/ace.onpage-help.js"></script>
+    <script src="/page/plugin/ace/js/select2.min.js?_dc=$!{staticVersion}"></script>
+
+
+</head>
+
+<body class="no-skin">
+<!-- #section:basics/navbar.layout -->
+<div id="navbar" class="navbar navbar-default">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('navbar', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <div class="navbar-container" id="navbar-container">
+        <!-- #section:basics/sidebar.mobile.toggle -->
+        <button type="button" class="navbar-toggle menu-toggler pull-left" id="menu-toggler">
+            <span class="sr-only">Toggle sidebar</span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+
+            <span class="icon-bar"></span>
+        </button>
+
+        <!-- /section:basics/sidebar.mobile.toggle -->
+        <div class="navbar-header pull-left">
+            <!-- #section:basics/navbar.layout.brand -->
+            <a href="#" class="navbar-brand">
+                <small>
+                    <i class="fa fa-leaf"></i>
+                    北京精通复盛机械有限公司-设备维保平台
+                </small>
+            </a>
+            <!-- /section:basics/navbar.layout.brand -->
+            <!-- #section:basics/navbar.toggle -->
+            <!-- /section:basics/navbar.toggle -->
+        </div>
+
+        <!-- #section:basics/navbar.dropdown -->
+        <div class="navbar-buttons navbar-header pull-right" role="navigation">
+            <ul class="nav ace-nav">
+                <!-- #section:basics/navbar.user_menu -->
+                <li class="light-blue">
+                    <a data-toggle="dropdown" href="#" class="dropdown-toggle">
+                        <img class="nav-user-photo" src="/page/plugin/ace/avatars/avatar2.png" alt="Jason's Photo"/>
+								<span class="user-info">
+                                    <small>${cmsUser.realName}</small>
+				                    <span style="color: #666633">$!{cmsUser.departName}</span>
+								</span>
+
+                        <i class="ace-icon fa fa-caret-down"></i>
+                    </a>
+                    <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
+                        <li>
+                            <a href="#">
+                                <i class="ace-icon fa fa-power-off"></i>
+                                退出
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <!-- /section:basics/navbar.user_menu -->
+            </ul>
+        </div>
+
+        <!-- /section:basics/navbar.dropdown -->
+    </div>
+    <!-- /.navbar-container -->
+</div>
+
+<!-- /section:basics/navbar.layout -->
+<div class="main-container" id="main-container">
+    <script type="text/javascript">
+        try {
+            ace.settings.check('main-container', 'fixed')
+        } catch (e) {
+        }
+    </script>
+
+    <!-- #section:basics/sidebar -->
+    <div id="sidebar" class="sidebar responsive">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'fixed')
+            } catch (e) {
+            }
+        </script>
+
+        <div class="sidebar-shortcuts" id="sidebar-shortcuts">
+            <div class="sidebar-shortcuts-large" id="sidebar-shortcuts-large">
+                <button class="btn btn-success">
+                    <i class="ace-icon fa fa-signal"></i>
+                </button>
+
+                <button class="btn btn-info">
+                    <i class="ace-icon fa fa-pencil"></i>
+                </button>
+
+                <!-- #section:basics/sidebar.layout.shortcuts -->
+                <button class="btn btn-warning">
+                    <i class="ace-icon fa fa-users"></i>
+                </button>
+
+                <button class="btn btn-danger">
+                    <i class="ace-icon fa fa-cogs"></i>
+                </button>
+
+                <!-- /section:basics/sidebar.layout.shortcuts -->
+            </div>
+
+            <div class="sidebar-shortcuts-mini" id="sidebar-shortcuts-mini">
+                <span class="btn btn-success"></span>
+
+                <span class="btn btn-info"></span>
+
+                <span class="btn btn-warning"></span>
+
+                <span class="btn btn-danger"></span>
+            </div>
+        </div>
+    ##        menu start
+        <ul class="nav nav-list menu-ul" id="menu-ul">
+
+        </ul>
+        <!-- /.nav-list -->
+
+
+    ##        menu end
+
+
+
+        <!-- #section:basics/sidebar.layout.minimize -->
+        <div class="sidebar-toggle sidebar-collapse" id="sidebar-collapse">
+            <i class="ace-icon fa fa-angle-double-left" data-icon1="ace-icon fa fa-angle-double-left"
+               data-icon2="ace-icon fa fa-angle-double-right"></i>
+        </div>
+
+        <!-- /section:basics/sidebar.layout.minimize -->
+        <script type="text/javascript">
+            try {
+                ace.settings.check('sidebar', 'collapsed')
+            } catch (e) {
+            }
+        </script>
+    </div>
+
+    <!-- /section:basics/sidebar -->
+    <div class="main-content">
+        <div class="breadcrumbs" id="breadcrumbs">
+            <script type="text/javascript">
+                try {
+                    ace.settings.check('breadcrumbs', 'fixed')
+                } catch (e) {
+                }
+            </script>
+
+            <ul class="breadcrumb">
+                <li>
+                    <i class="ace-icon fa fa-home home-icon"></i>
+                    <a href="#">首页</a>
+                </li>
+                <li>
+                    <a href="#">客户管理</a>
+                </li>
+                <li class="active">客户管理</li>
+            </ul>
+            <!-- /.breadcrumb -->
+            <!-- /section:basics/content.searchbox -->
+        </div>
+        <div class="page-content">
+            $screen_content
+        </div>
+    </div>
+
+##    <div class="footer">
+##        <div class="footer-inner">
+##            <!-- #section:basics/footer -->
+##            <div class="footer-content">
+##						<span class="bigger-120">
+##							<span class="blue bolder"></span>
+##							北京复盛设备维保平台 &copy; 2017-2034
+##						</span>
+##
+##                &nbsp; &nbsp;
+##            </div>
+##
+##            <!-- /section:basics/footer -->
+##        </div>
+##    </div>
+
+</div>
+<!-- /.main-container -->
+
+    #if($javascriptBlock) $javascriptBlock
+    #end
+</body>
+</html>
+

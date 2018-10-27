@@ -1,0 +1,82 @@
+#set($page_title=" 字典管理")
+#set($selected_menu_id='menu_task_center_index')
+
+<div class="main-content" id="main-container">
+    <div class="breadcrumbs" id="breadcrumbs">
+        <script type="text/javascript">
+            try {
+                ace.settings.check('breadcrumbs', 'fixed')
+            } catch (e) {
+            }
+        </script>
+        <ul class="breadcrumb">
+            <li>
+                <i class="ace-icon fa fa-home home-icon"></i>
+                <a href="/index.html">首页</a>
+            </li>
+            <li>
+                <a href="#">系统管理</a>
+            </li>
+            <li class="active">字典管理</li>
+        </ul>
+        <!-- /.breadcrumb -->
+        <!-- /section:basics/content.searchbox -->
+    </div>
+    <div class="page-content">
+
+        <style>
+            .search-condition {
+                margin-top: 5px;
+                margin-bottom: 5px;
+            }
+        </style>
+        <div class="seach-bar">
+            <div class="row">
+                <div class="col-xs-4 search-condition">
+                    <div class="input-group col-xs-11">
+                        <span class="input-group-addon" style="width: 100px">关键字</span>
+                        <input id="key" name="key" type="text" placeholder="字典Code或字典值"
+                               class="form-control form-cnd">
+                    </div>
+                </div>
+
+                <div class="col-xs-4 search-condition">
+                    <div class="input-group col-xs-11">
+                        <span class="input-group-addon" style="width: 100px">字典组</span>
+                        <select id="attrGroupIdQ" name="attrGroupIdQ" class="col-xs-8 ui-autocomplete-select">
+                            <option value="">请选择</option>
+                            #foreach($group in $groupList)
+                                <option value="$!{group.attrGroupId}">$!{group.groupName}</option>
+                            #end
+
+                        </select>
+                    </div>
+                </div>
+                <div class="col-xs-4 search-condition">
+                    <button class="btn btn-primary btn-search btn-sm" type="button" id="queryBtn">
+                        <i class="icon-search"></i>搜索
+                    </button>
+                    <button type="button" class="btn btn-success button btn-sm" id="addAttr" style="height: 32px">
+                        <i class="icon-plus"></i>新增
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="row col-xs-12 tab-border">
+            <table id="attr-grid-table"></table>
+            <div id="attr-grid-pager"></div>
+        </div>
+    </div>
+</div>
+
+#define($javascriptBlock)
+<script src="/plug-in/sys/attr/list.js?_dc=$!{staticVersion}"></script>
+#end
+
+<!--addModal-->
+<div class="modal fade cms-modal" id="addModal" role="dialog" role="dialog" aria-labelledby="myModalLabel"
+     aria-hidden="true" data-backdrop="static" data-keyboard="false" style="display: none; padding-left: 0px;">
+    <div class="modal-content attr-body">
+    </div>
+</div>

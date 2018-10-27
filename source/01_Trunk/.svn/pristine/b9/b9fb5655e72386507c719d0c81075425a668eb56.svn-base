@@ -1,0 +1,6 @@
+##jdbc\u767B\u5F55\u4FE9\u5462\u53CA
+jdbc.url = jdbc:mysql://120.77.151.83:3306/geek_cms?characterEncoding=UTF-8
+jdbc.user=root
+jdbc.password=xjkp123
+
+

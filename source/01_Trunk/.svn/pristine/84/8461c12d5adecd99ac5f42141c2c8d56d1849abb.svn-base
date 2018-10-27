@@ -1,0 +1,15 @@
+#set($layout = "layout_sunshine_en.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">Order submission successful</div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com/en/h-index.html">Home</a> &gt; Submit the booking</div>
+    </div>
+    <div class="odok">Your order has been successfully submitted. Please pay attention to Email.</div>
+    <div class="oi" style="margin-top:10px; border:none">The order information</div>
+    <div class="oii" style="font-size:14px;">
+        room Type：$!{type.typeName} - $!{type.badType}-$!{type.breakfast}<br>
+        Bed type：$!{order.orderNumRooms} NO.of rooms<br>
+        total room charge：$!{sumPrice} &nbsp;XOF<br>
+        check in date：$!{startDate} check out date：$!{endDate}<br>
+    </div>
+</div>

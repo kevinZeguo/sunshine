@@ -1,0 +1,12 @@
+#set($page_title=" 订单确认")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+<div style="width: 100% ; text-align: center;margin-top: 50px">
+    #if($!{order.env} == 'en')
+        <h1>Confirm the order success!</h1>
+    #elseif($!{order.env} == 'fra')
+        <h1>Confirmation d’une commande succès!</h1>
+    #else
+        <h1>确认订单成功!</h1>
+    #end
+</div>

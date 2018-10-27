@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysUserDepartDao" >
+
+  <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysUserDepart" >
+    <id column="user_dept_id" property="userDeptId" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="dept_id" property="deptId" jdbcType="INTEGER" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+
+    user_dept_id, user_id, dept_id, creator, created, modifier, modified, deleted
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+    select 
+    <include refid="Base_Column_List" />
+    from sys_user_depart
+    where user_dept_id = #{userDeptId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+
+    delete from sys_user_depart
+    where user_dept_id = #{userDeptId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysUserDepart" >
+      <selectKey keyProperty="userDeptId" resultType="Integer">
+          SELECT @@IDENTITY AS userDeptId
+      </selectKey>
+    insert into sys_user_depart ( user_id, dept_id,
+      creator, created, modifier, 
+      modified, deleted)
+    values ( #{userId,jdbcType=INTEGER}, #{deptId,jdbcType=INTEGER},
+      #{creator,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{modifier,jdbcType=INTEGER}, 
+      #{modified,jdbcType=TIMESTAMP}, 0)
+  </insert>
+
+  <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.user.SysUserDepart" >
+
+    update sys_user_depart
+    set user_id = #{userId,jdbcType=INTEGER},
+      dept_id = #{deptId,jdbcType=INTEGER},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where user_dept_id = #{userDeptId,jdbcType=INTEGER}
+  </update>
+    <delete id="deleteByUserId" parameterType="SysUserDepart" >
+        update sys_user_depart
+    set modifier = #{modifier,jdbcType=INTEGER},
+      modified = now(),
+      deleted = 1
+    where user_id = #{userId,jdbcType=INTEGER}
+    </delete>
+
+</mapper>

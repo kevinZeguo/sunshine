@@ -1,0 +1,44 @@
+#set($layout = "layout_sunshine_cn.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">酒店预订 <span class="enlm">Reservations</span></div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com">首页</a> &gt; 酒店预订</div>
+    </div>
+    <input type="hidden" id="env" name="env" value="$!{env}">
+    <div class="r02">
+        <table>
+            <tbody>
+            <tr style="height: 50px">
+                <td>入住时间：<input class="" type="text" value="$!{startDate}" name="checkindate" id="startDate">
+                    离店时间：<input class="" type="text" value="$!{endDate}" name="checkoutdate" id="endDate">
+                </td>
+                <td><input
+                        style="background-color:#FD8B04;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: 200px"
+                        type="button"
+                        id="searchRoom" src="" value="查询房间"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="rooms" id="roomList">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr style="background-color:#ddd1a7; height:30px;">
+                <th style="width:25%;text-indent:46px;">房型</th>
+                <th style="width:15%;text-indent:20px;">床型</th>
+                <th style="width:15%;text-indent:7px;">早餐</th>
+                <th style="width:15%;text-indent:20px;">网络</th>
+                <th style="width:15%;text-indent:7px;">房价(XOF/晚)</th>
+                <th style="width:15%; text-align:center;">操作</th>
+            </tr>
+            </thead>
+            <tbody id="roomTab">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="/plug-in/public/hotel/room.js?_dc=$!{staticVersion}"></script>
+

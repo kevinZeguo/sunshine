@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysRoleDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysRole">
+
+        <id column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="role_code" property="roleCode" jdbcType="VARCHAR"/>
+        <result column="role_name" property="roleName" jdbcType="VARCHAR"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="modifier" property="modifier" jdbcType="INTEGER"/>
+        <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
+        <result column="deleted" property="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    role_id, role_code, role_name, creator, created, modifier, modified, deleted
+  </sql>
+    <select id="selectById" resultType="SysRole" parameterType="java.lang.Integer">
+        select
+        <include refid="role_cole"/>
+        from sys_role sr
+        where sr.role_id = #{roleId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="SysRole">
+    update sys_role set deleted = 1 , modifier = #{modifier} , modified = now()
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </delete>
+
+    <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysRole">
+        <selectKey keyProperty="roleId" resultType="Integer">
+            SELECT @@IDENTITY AS roleId
+        </selectKey>
+        insert into sys_role ( role_code, role_name,
+        creator, created, modifier,
+        modified, deleted)
+        values ( #{roleCode,jdbcType=VARCHAR}, #{roleName,jdbcType=VARCHAR},#{creator,jdbcType=INTEGER}, now(),
+        #{modifier,jdbcType=INTEGER},now(), 0)
+    </insert>
+
+    <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.user.SysRole">
+    update sys_role
+    set role_code = #{roleCode,jdbcType=VARCHAR},
+      role_name = #{roleName,jdbcType=VARCHAR},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = now()
+    where role_id = #{roleId,jdbcType=INTEGER}
+  </update>
+
+    <sql id="role_cole">
+        sr.role_id roleId, sr.role_code roleCode, sr.role_name roleName, sr.creator creator,
+        sr.created created, sr.modifier modifier, sr.modified modified, sr.deleted deleted
+    </sql>
+
+    <select id="selectRoleCountByPage" resultType="int" parameterType="RoleQueryParam">
+        select count(1) from sys_role sr
+        where sr.deleted = 0
+        <if test="roleName!= null and roleName != '' ">
+            and (sr.role_name like #{roleName} or sr.role_code like #{roleName})
+        </if>
+    </select>
+
+    <select id="selectRoleListByPage" resultType="SysRole" parameterType="RoleQueryParam">
+        select
+        <include refid="role_cole"/>,
+        count(rf.function_id) functionCount,
+        count(sp.user_id) userCount
+        from sys_role sr
+        left join sys_role_function rf on sr.role_id = rf.role_id and rf.deleted = 0
+        left join sys_permission sp on sr.role_id = sp.role_id and sp.deleted = 0
+        where sr.deleted = 0
+        <if test="roleName!= null and roleName != '' ">
+            and (sr.role_name like #{roleName} or sr.role_code like #{roleName})
+        </if>
+        group by sr.role_id
+        order by sr.role_id desc
+        limit #{start} , #{limit}
+    </select>
+
+</mapper>

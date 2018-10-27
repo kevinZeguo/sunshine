@@ -1,0 +1,6 @@
+cms.domain.name=http://120.77.151.83:80/
+#�ļ��洢·��
+cms.sys.file.dir=/data/app/tomcat7.0.77/webapps/uploadFile
+sys.authority.token.key=!QAZ@WSX123
+sale_man_email=reservationniamey.soluxeint@gmail.com
+#sale_man_email=jackfeng86@163.com

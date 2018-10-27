@@ -1,0 +1,131 @@
+#set($page_title=" 部门管理")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+
+<script src="/plug-in/sys/user/add.js?_dc=$!{staticVersion}"></script>
+
+<form class="form-horizontal" id="userForm" role="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">部门管理<span style="font-size: 12px">>>#if($add == 'add')新增部门 #else
+            编辑部门 #end</span></h4>
+    </div>
+    <div class="modal-body">
+        <fieldset>
+            <input type="hidden" id="userId" name="userId" value="$!{user.userId}">
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="userName"> * 用户账号:</label>
+
+                <div class="col-xs-8">
+                    #if($add == 'add')
+                        <input type="text" id="userName" name="userName" class="col-xs-8 ui-autocomplete-input"
+                               placeholder="请输入用户账号" value="$!{user.userName}"/>
+                    #else
+                        <span class="col-xs-8"> $!{user.userName}</span>
+                        <input type="hidden" id="userName" name="userName"
+                               placeholder="请输入用户账号" value="$!{user.userName}"/>
+                    #end
+
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="realName">* 用户名称:</label>
+
+                <div class="col-xs-8">
+                    #if($add == 'add')
+                        <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入用户真实名称" id="realName"
+                               name="realName" value="$!{user.realName}"/>
+                    #else
+                        <span class="col-xs-8"> $!{user.realName}</span>
+                        <input type="hidden" id="realName" name="realName"
+                               placeholder="请输入用户账号" value="$!{user.userName}"/>
+                    #end
+                </div>
+            </div>
+            #if($add == 'add')
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-4 control-label no-padding-right" for="password">* 密码: </label>
+
+                    <div class="col-xs-8">
+                        <input type="password" class="col-xs-8 ui-autocomplete-input" placeholder="请输入用户密码"
+                               id="password"
+                               name="password" value="$!{user.password}"/>
+                    </div>
+                </div>
+                <div class="form-group col-xs-12">
+                    <label class="col-xs-4 control-label no-padding-right" for="confirm_password">* 重复密码: </label>
+
+                    <div class="col-xs-8">
+                        <input type="password" class="col-xs-8 ui-autocomplete-input" placeholder="请输入重复密码"
+                               id="confirm_password"
+                               name="confirm_password" value="$!{user.password}"/>
+                    </div>
+                </div>
+            #end
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="departId">* 选择部门: </label>
+
+                <div class="col-xs-8">
+                    <select id="departId" name="departId" class="col-xs-8 ui-autocomplete-select" placeholder="请选择所属部门"
+                            value="$!{user.departId}">
+                        <option value="">请选择</option>
+                        #foreach($depart in $departList)
+                            <option value="$depart.departId">$depart.departName</option>
+                        #end
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="departId">选择角色: </label>
+
+                <div class="col-xs-8" style="margin-left: -12px">
+                    <select id="roleIds" name="roleIds" class="col-xs-9 ui-autocomplete-select" placeholder="选择用户角色"
+                            multiple="multiple"
+                            value="$!{user.roleIds}">
+                        #foreach($role in $roleList)
+                            <option value="$role.roleId">$role.roleName</option>
+                        #end
+                    </select>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="telphone">手机号码: </label>
+
+                <div class="col-xs-8">
+                    <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入手机号码" id="telephone"
+                           name="telephone" value="$!{user.telephone}"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="phone">办公电话: </label>
+
+                <div class="col-xs-8">
+                    <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入办公电话" id="officePhone"
+                           name="officePhone" value="$!{user.officePhone}"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="email">常用邮箱: </label>
+
+                <div class="col-xs-8">
+                    <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入邮箱" id="email"
+                           name="email" value="$!{user.email}"/>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-sm btn-primary" type="submit" id="submit-btn" name="submit-btn">
+            保存
+        </button>
+        &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-white btn-info " type="button" id="closeModal">
+            取消
+        </button>
+    </div>
+
+</form>

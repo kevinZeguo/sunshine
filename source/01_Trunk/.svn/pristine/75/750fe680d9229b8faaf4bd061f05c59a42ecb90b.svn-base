@@ -1,0 +1,16 @@
+#set($layout = "layout_sunshine.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">订单提交成功</div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com">首页</a> &gt; 提交预订</div>
+    </div>
+    <div class="odok">您的订单已经成功提交，请您关注Email</div>
+    <div class="oi" style="margin-top:10px; border:none">订单信息</div>
+    <div class="oii" style="font-size:14px;">
+        房型：$!{type.typeName} - $!{type.badType}-$!{type.breakfast}<br>
+        房间：$!{order.orderNumRooms}间<br>
+        房费：$!{sumPrice} &nbsp;XOF<br>
+        到店时间：$!{startDate}<br>
+        离店时间：$!{endDate}<br>
+    </div>
+</div>

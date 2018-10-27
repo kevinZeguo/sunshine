@@ -1,0 +1,375 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>阳光尼亚美酒店预订信息</title>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+        }
+
+        hcr1 {
+            float: left;
+            width: 694px;
+            margin-left: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 2px;
+        }
+
+        .r01 {
+            float: left;
+            height: 34px;
+            width: 100%;
+            line-height: 34px;
+            background-color: #c6b26d;
+        }
+
+        .r01TextCenter {
+            font-size: 14px;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+        }
+
+        .r01l {
+            float: left;
+            height: 34px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #65451d;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fef6b7;
+        }
+
+        .r01r {
+            float: right;
+            height: 34px;
+            text-align: right;
+            padding-right: 6px;
+            background-color: #c6b26d;
+        }
+
+        .r02 {
+            float: left;
+            width: 694px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            line-height: 20px;
+        }
+
+        .rooms {
+            float: left;
+            width: 694px;
+        }
+
+        .rooms table td {
+            height: 28px;
+            padding: 7px;
+            border-bottom-width: 1px;
+            border-bottom-style: dashed;
+            border-bottom-color: #E3E3E3;
+        }
+
+        .rooms .text-weizhi1 {
+            width: 30%;
+        }
+
+        .rooms .text-weizhi2 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi3 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi4 {
+            width: 10%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi5 {
+            width: 15%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi6 {
+            width: 15%;
+            text-align: left;
+            padding-left: 21px;
+        }
+
+        /*.rooms .padding-top-bottom{ padding-top:4px; padding-bottom:4px;}*/
+        .rooms .border-bottom {
+            border-bottom: dashed 1px #CCC
+        }
+
+        .rooms .rpName {
+            padding-left: 18px;
+        }
+
+        .rooms a.book {
+            background: url(../../images/bookbtn.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .rooms a.booknone {
+            background: url(../../images/bookbtn1.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .r02 li {
+            float: left;
+            width: 230px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .r02 li img {
+            border: 4px solid #5f3e15;
+        }
+
+        .oi {
+            width: 688px;
+            line-height: 30px;
+            float: left;
+            padding-left: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .oii {
+            float: left;
+            width: 688px;
+            padding-left: 6px;
+            line-height: 22px;
+        }
+
+        .oii .price {
+            font-size: 16px;
+            color: #f60;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #f60;
+            display: inline-block;
+            font-family: Tahoma, Geneva, sans-serif;
+            cursor: pointer;
+        }
+
+        .oii span.teshu {
+            display: inline-block;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #c30;
+            color: #C30;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="main-content">
+    <div style="margin-left: 20px">
+        销售人员，您好
+    </div>
+    <div class="page-wrap">
+        <div style="margin-left: 40px">
+            你收到$!{order.username}的预约单，请尽快处理,预约信息为：
+        </div>
+        <br>
+    </div>
+    <div class="ss-right" style="width: 800px;float: left;text-align: left;margin-bottom: 80px;min-height: 500px;">
+        <style>
+            .help-block {
+                font-family: 宋体 !important;
+                font-size: 9px !important;
+                color: red;
+                width: 240px;
+                float: right;
+            }
+        </style>
+        <div class="hcr1">
+            <div class="r01">
+                <div class="r01l">订单信息</div>
+            </div>
+        </div>
+        <div class="oi bgColor" style="background-color: gainsboro;width: 99%">房型信息</div>
+        <div class="" id="rinfo" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 10px 10px 10px;">
+                <tbody>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        房型:
+                    </td>
+                    <td width="90%">
+                        <strong>$!{room.typeName}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        床型:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.badType}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        早餐:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.breakfast}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        网络:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.network}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        楼层:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.floor}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        简述:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.typeNote}</strong>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 99%;margin-top: 5px;margin-left: 1px">商务套房
+        </div>
+        <div class="" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">房间数量：</td>
+                    <td>
+                        <span>$!{order.orderNumRooms}</span>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody id="inCountHtml">
+                    #foreach($num in $!{numList})
+                    <tr>
+                        <td style="width:12%; height:30px;">客房${velocityCount}：</td>
+                        <td>
+                            <span>$!{num} </span>人
+                        </td>
+                    </tr>
+                    #end
+                </tbody>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">入住时间：</td>
+                    <td>$!{startDate}入住，$!{endDate}离店
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">房费总计：</td>
+
+                    <td>
+                        <span>$!{sumPrice}XOF</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 99%;margin-top: 5px;margin-left: 1px;">入住信息
+        </div>
+        <div class="" style="border: 1px solid slategray;height:300px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">客人姓名
+                    </td>
+                    <td class="form-group1">
+                        <div class="names form-control1" id="names">
+                            <span>$!{order.username}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">E-mail</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <span>$!{order.email}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">联系手机</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <span>$!{order.telephone}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">最晚到店时间</td>
+                    <td>$!{order.lateArriTime}</td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">特殊要求</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <textarea placeholder="请输入特殊要求" id="comment" name="comment" cols="70" rows="4"
+                                      disabled>$!{order.comment}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oii" style="margin-top: 20px;text-align: center;">
+				<span style="font-size:24px;">
+   				<a href="http://101.200.233.41:8100/confirm.html?orderId=$!{order.id}" target="_blank">确认预约</a>
+				</span>
+        </div>
+        <div style="height: 80px;width: 100%;background-color: gainsboro;margin-top: 50px;text-align: center;padding-top:30px">
+            <span>如有任何关于酒店房间方面的问题请发送邮件给我们，我们的邮箱为：</span><br>
+            <span>reservationniamey.soluxeint@gmail.com</span>>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+
+

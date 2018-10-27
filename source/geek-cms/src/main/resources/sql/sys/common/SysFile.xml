@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.common.SysFileDao">
+
+    <sql id="file_col">
+        f.id id,f.file_name fileName,f.file_dir fileDir,f.file_alias fileAlias,f.file_type fileType,
+        f.app_id appId,f.app_type appType,f.created created,f.creator creator,f.modifier modifier,
+        f.modified modified,f.deleted deleted
+    </sql>
+
+    <select id="selectById" resultType="SysFile" parameterType="java.lang.Integer">
+        select
+        <include refid="file_col"/>
+        from sys_file f
+        where f.id = #{id,jdbcType=INTEGER}
+        and f.deleted = 0
+    </select>
+
+    <delete id="deleteById" parameterType="SysFile">
+      update sys_file set deleted = 1 , modifier = #{modifier} ,modified = now() where id = #{id,jdbcType=INTEGER}
+    </delete>
+
+
+    <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.common.SysFile">
+        <selectKey keyProperty="id" resultType="Integer">
+            SELECT @@IDENTITY AS id
+        </selectKey>
+        insert into sys_file (file_name, file_dir,file_alias, file_type, app_id,app_type, created, creator,
+        file_size , modifier, modified , deleted)
+        values (#{fileName,jdbcType=VARCHAR}, #{fileDir,jdbcType=VARCHAR},#{fileAlias,jdbcType=VARCHAR},
+        #{fileType,jdbcType=VARCHAR}, #{appId,jdbcType=INTEGER},
+        #{appType,jdbcType=VARCHAR}, now(), #{creator,jdbcType=INTEGER},#{fileSize,jdbcType=LONGVARBINARY}, #{modifier},
+        now(),0)
+    </insert>
+
+    <!--更新文件与应用关系-->
+    <update id="updateFileAndAppRlt" parameterType="com.beijing.geek.cms.sys.domain.common.SysFile">
+        update sys_file
+        set app_id = #{appId,jdbcType=INTEGER},
+        app_type = #{appType,jdbcType=INTEGER},
+        modifier = #{userId},
+        modified = now()
+        where id in
+        <foreach collection="fileIdList" open="(" index="index" item="fileId" close=")" separator=",">
+            #{fileId,jdbcType=INTEGER}
+        </foreach>
+    </update>
+
+    <!--根据APPId列表查询文件列表-->
+    <select id="selectListByAppId" resultType="SysFile">
+        select
+        <include refid="file_col"/>
+        from sys_file f
+        where f.app_id = #{appId,jdbcType=INTEGER}
+        and f.app_type = #{appType}
+        and f.deleted = 0
+    </select>
+    <!--根据appId删除文件-->
+    <delete id="deleteByAppId" parameterType="SysFile">
+        update sys_file set deleted = 1 , modifier = #{userId} ,modified = now() where  app_id = #{appId,jdbcType=INTEGER}
+        and app_type = #{appType}
+        and deleted = 0
+    </delete>
+
+    <select id="selectListByIds" resultType="SysFile">
+        select
+        <include refid="file_col"/>
+        from sys_file f
+        where f.deleted = 0
+        and f.id in
+        <foreach collection="fileIds" open="(" index="index" item="fileId" close=")" separator=",">
+            #{fileId,jdbcType=INTEGER}
+        </foreach>
+    </select>
+
+
+</mapper>

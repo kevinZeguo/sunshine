@@ -1,0 +1,45 @@
+#set($layout = "layout_sunshine_fra.vm")
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">Reservationd’hotel</div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com/fra/">Acceuil</a> &gt; reservations
+        </div>
+    </div>
+    <input type="hidden" id="env" name="env" value="$!{env}">
+    <div class="r02">
+        <table>
+            <tbody>
+            <tr style="height: 50px">
+                <td>&nbsp;&nbsp;&nbsp;arrivee：<input class="" type="text" value="$!{startDate}" name="checkindate" id="startDate">
+                    &nbsp;&nbsp;&nbsp;depart：<input class="" type="text" value="$!{endDate}" name="checkoutdate" id="endDate">
+                </td>
+                <td><input
+                        style="background-color:#FD8B04;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: 200px"
+                        type="button"
+                        id="searchRoom" src="" value="demande"></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="rooms" id="roomList">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+            <thead>
+            <tr style="background-color:#ddd1a7; height:30px;">
+                <th style="width:25%;text-indent:25px;">type de chambre</th>
+                <th style="width:15%;text-indent:5px;">type de lit</th>
+                <th style="width:15%;text-indent:1px;">petit dejeune</th>
+                <th style="width:15%;text-indent:20px;">reseau</th>
+                <th style="width:15%;text-indent:7px;">taux (CFA/nuite)</th>
+                <th style="width:15%; text-align:center;">operation</th>
+            </tr>
+            </thead>
+            <tbody id="roomTab">
+
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+<script src="/plug-in/public/hotel/room_fra.js?_dc=$!{staticVersion}"></script>
+

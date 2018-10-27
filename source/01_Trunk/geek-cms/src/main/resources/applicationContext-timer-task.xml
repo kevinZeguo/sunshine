@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:task="http://www.springframework.org/schema/task"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+
+    <!-- 位点服务 消费队列 -->
+    <bean id="roomTypeInitService" class="com.beijing.geek.cms.sunshine.service.impl.RoomTypeInitServiceImpl"></bean>
+
+    <task:scheduled-tasks>
+        <task:scheduled ref="roomTypeInitService" method="init" cron="0 0 23 * * ?"/>
+    </task:scheduled-tasks>
+    <task:annotation-driven/>
+
+
+</beans>
+

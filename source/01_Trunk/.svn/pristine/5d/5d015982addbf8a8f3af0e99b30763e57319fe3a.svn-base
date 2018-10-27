@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Soluxe Hotel Niamey's official website.</title>
+
+    <meta name="description" content=""/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <meta charset="utf-8"/>
+    <!-- bootstrap & fontawesome -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/font-awesome.min.css"/>
+    <!-- page specific plugin styles -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/jquery-ui.min.css"/>
+    <link rel="stylesheet" href="/page/plugin/ace/css/datepicker.css"/>
+
+    <!--自定义样式-->
+    <link rel="stylesheet" href="/plug-in/geek/geek_cms.css"/>
+    <link rel="stylesheet" href="/page/sunshine/fkTheme.min.css"/>
+    <link rel="stylesheet" href="/page/sunshine/fkNav.min.css"/>
+    <link rel="stylesheet" href="/page/sunshine/base2.min.css"/>
+    <link rel="stylesheet" href="/page/sunshine/style.css"/>
+
+
+    <!--[if IE]>
+    <script type="text/javascript">
+        <
+        script
+        src = '/page/plugin/ace/js/jquery1x.min.js' ></script>
+    </script>
+    <![endif]-->
+    <script src='/page/plugin/ace/js/jquery.min.js'></script>
+    <script type="text/javascript" src="/page/sunshine/js/jquery-core.min.js"></script>
+    <script src='/page/plugin/ace/js/jquery.mobile.custom.min.js'></script>
+
+    <!-- page specific plugin scripts -->
+    <script src="/page/plugin/ace/js/date-time/bootstrap-datepicker.min.js"></script>
+    <script src="/page/plugin/ace/js/date-time/locales/bootstrap-datepicker.zh-CN.js"></script>
+    <!-- inline scripts related to this page -->
+    <!-- the following scripts are used in demo only for onpage help and you don't need them -->
+    <link rel="stylesheet" href="/page/plugin/ace/css/ace.onpage-help.css"/>
+
+    <script src="/page/plugin/ace/js/jquery.validate.min.js"></script>
+    <script src="/page/plugin/ace/js/ace/elements.onpage-help.js"></script>
+    <script src="/page/plugin/ace/js/ace/ace.onpage-help.js"></script>
+    <script src="/plug-in/jquery-plugs/form/jquery.form.js"></script>
+    <script src="/plug-in/cms/cmsUtil.js"></script>
+    <style>
+
+        .webTopTable {
+            margin-top: -14px;
+            margin-left: 0px;
+        }
+
+        .webNavTable {
+            margin-left: 3px;
+            margin-top: 12px;
+        }
+
+        #navV2 {
+            width: 887px;
+        }
+
+    </style>
+
+</head>
+
+<body class="g_body g_locale1036 g_cusSiteWidth fk-baseEditToolV2  ">
+<!-- #section:basics/navbar.layout -->
+<div id="navbar ss-header g_main g_col106  ">
+    <div class="g_web ">
+        <table class="webTopTable" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td align="center">
+                    <div id="webTop" class="webTop">
+                        <div id="localer" style="text-align:center; white-space: nowrap;top:25px;bottom:auto;left:1120px;right:auto;"
+                             class="localer" _modulestyle="8">
+                            <div class="J_localerPanel localerPanel_8">
+                                <ul class="localerList J_localerList">
+                                    <li class="localerItem last">
+                                        <div class="localerItemContent languageFra first">
+                                            <a href="/fra.html" hidefocus="true">
+                                                <span class="icon languageFra_Icon">&nbsp;</span>
+                                                <span class="text" title="français" style="">français</span>
+                                            </a>
+                                            <span class="arrow">&nbsp;</span></div>
+                                    </li>
+                                    <div class="delimiter">¦</div>
+                                    <li class="localerItem">
+                                        <div class="localerItemContent languageCn ">
+                                            <a href="/cn.html" hidefocus="true">
+                                                <span class="icon languageCn_Icon">&nbsp;</span>
+                                                <span class="text" title="中文" style="">中文</span> </a>
+                                        </div>
+                                    </li>
+                                    <div class="delimiter">¦</div>
+                                    <li class="localerItem">
+                                        <div class="localerItemContent languageEn">
+                                            <a href="/en.html" hidefocus="true">
+                                                <span class="icon languageEn_Icon">&nbsp;</span>
+                                                <span class="text" title="English" style="">English</span>
+                                            </a></div>
+                                    </li>
+
+                                </ul>
+                            </div>
+                        </div>
+                        <div id="logo" class="logo logo2" style="top:10px;left:3px;display:block;" _defaultlogo="0"><a
+                                id="logoLink" hidefocus="true" class="link-p" href="/fra/" link="/fra/"
+                                target="_self"><img id="logoImg" title="阳光尼亚美酒店" alt="阳光尼亚美酒店" style="float:left;"
+                                                    height="97" width="229"
+                                                    src="http://13798983.s21i-13.faiusr.com/4/ABUIABAEGAAgmfyn0wUo3M7r7AEw5gQ44QE!300x300.png"></a>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="webNavTable" cellpadding="0" cellspacing="0">
+            <tbody>
+            <tr>
+                <td align="center">
+                    <div id="webNav" class="webNav webNavDefault">
+                        <div id="navV2Wrap">
+                            <div id="navV2" class="nav navV2 navStyle navStyle3170">
+                                <div class="navMainContent">
+                                    <div class="navContent">
+                                        <div id="navCenterContent" class="navCenterContent">
+                                            <div id="navCenter" class="navCenter" style="width: 869px;">
+                                                <div class="itemPrev" style="display: none;"></div>
+                                                <div class="itemContainer">
+                                                    <div title="Maison" id="nav2" class="item itemCol2 itemIndex1 "
+                                                         colid="2"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Maison</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Présentation" id="nav103"
+                                                         class="item itemCol103 itemIndex2" colid="103"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/introduction.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/introduction.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/introduction.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Introduction</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="" id="nav106"
+                                                         class="item itemCol106 itemIndex3 itemSelected itemSelectedIndex1"
+                                                         colid="106"
+                                                         onclick="window.open(&quot;/fra.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;/fra.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="/fra.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Reservation</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Chambre" id="nav105" class="item itemCol105 itemIndex4"
+                                                         colid="105"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/roomCenter.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/roomCenter.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/roomCenter.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Chambre</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Réunion" id="nav104" class="item itemCol104 itemIndex5"
+                                                         colid="104"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/conference.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/conference.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/conference.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Reunion</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Messages" id="nav9" class="item itemCol9 itemIndex6"
+                                                         colid="9"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/h-msgBoard.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/h-msgBoard.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/h-msgBoard.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Messages</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Recrutement" id="nav101"
+                                                         class="item itemCol101 itemIndex7" colid="101"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/recruitment.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/recruitment.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/recruitment.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Recrutement</span></a></div>
+                                                    </div>
+                                                    <div class="itemSep"></div>
+                                                    <div title="Contactez-nous" id="nav102"
+                                                         class="item itemCol102 itemIndex8" colid="102"
+                                                         onclick="window.open(&quot;http://www.soluxehotelniamey.com/fra/contactUs.html&quot;, &quot;_self&quot;)"
+                                                         _jump="window.open(&quot;http://www.soluxehotelniamey.com/fra/contactUs.html&quot;, &quot;_self&quot;)">
+                                                        <div class="itemCenter"><a hidefocus="true"
+                                                                                   style="outline:none;"
+                                                                                   href="http://www.soluxehotelniamey.com/fra/contactUs.html"
+                                                                                   onclick="return false;"><span
+                                                                class="itemName0">Contactez-nous</span></a></div>
+                                                    </div>
+                                                </div>
+                                                <div class="itemNext" style="display: none;"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <table class="webHeaderTable J_webHeaderTable" cellpadding="0" cellspacing="0" id="webHeaderTable">
+            <tbody>
+            <tr>
+                <td align="center" class="J_webHeaderTable webHeaderTd fk-moduleZoneWrap">
+                    <div id="fk-webHeaderZone"
+                         class="elemZone elemZoneModule J_moduleZone fk-webHeaderZone fk-moduleZone forms sideForms">
+                        <div class="fk-moduleZoneBg fk-elemZoneBg J_zoneContentBg elemZoneBg"></div>
+                    </div>
+                    <div id="webHeader" class="webHeader">
+                        <table class="headerTable" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr>
+                                <td class="headerCusLeft"></td>
+                                <td class="headerCusMiddle" align="center" valign="top">
+                                    <div class="headerNav headerNavDefault">
+
+                                    </div>
+                                </td>
+                                <td class="headerCusRight"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <!-- /section:basics/navbar.layout -->
+    <div class="main-container" id="main-container"
+         style="min-width: 1200px;text-align: center;margin-top: 20px;overflow-x: auto">
+        <div class="ss-left" style="width: 240px;float: left;margin-left: 200px">
+            <div class="l01">
+                <div class="l01t">demande en ligne</div>
+                <div class="l01c">
+                    <form method="post" action="/room.html">
+                        <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                            <tbody>
+                            <tr>
+                                <td style="width:35%; text-align:right;">arrivee：</td>
+                                <td style="padding-top:10px; padding-bottom:10px;text-align: left">
+                                    <input class="iptchkin" type="text" value="$!{startDate}" name="checkindate"
+                                           id="checkindate">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="width:35%; text-align:right;">depart：</td>
+                                <td style="padding-top:10px; padding-bottom:10px;text-align: left">
+                                    <input class="iptchkin" type="text" value="$!{endDate}" name="checkoutdate"
+                                           id="checkoutdate">
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="text-align:center; padding-left:6px;" colspan="2">
+                                    <input id="setCheckDate" type="submit" value='demande'
+                                           style="background-color:#FD8B04;border-radius: 2px;border: hidden;margin: 5px 5px 5px 5px ;padding: 3px 3px 3px 3px; color: white;font-weight: 200px;height: 35px;width: 80px;font-size: 14px;">
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </form>
+                </div>
+            </div>
+            <div class="l02" style="margin-bottom: 40px;">
+                <div class="l01t">processus de reservation de chambre</div>
+                <div class="l02pic">
+                    <div style="background-color: #8e6843;border-radius: 20px;font-size: 16px;width: 180px;height: 105px;margin-left: 35px;padding-top:5px;color: white ">
+                        Toute information complémentaire ou prise de rendez-vous en ligne
+                    </div>
+                    <div style="text-align: center;width: 100%;margin-top: 2px;margin-bottom: 2px">
+                        <div style="height: 30px;width:2px;border:2px solid #8e6843;margin-left: 118px ">
+                        </div>
+                        <div class="to_bottom" style="margin-left: 110px"></div>
+                    </div>
+                    <div style="background-color: #8e6843;border-radius: 20px;font-size: 16px;width: 180px;height: 105px;margin-left: 35px;padding-top:25px;color: white ">
+                        confirmation
+                    </div>
+                    <div style="text-align: center;width: 100%;margin-top: 2px;margin-bottom: 2px">
+                        <div style="height: 30px;width:2px;border:2px solid #8e6843;margin-left: 118px ">
+                        </div>
+                        <div class="to_bottom" style="margin-left: 110px"></div>
+                    </div>
+
+                    <div style="background-color: #8e6843;border-radius: 20px;font-size: 16px;width: 180px;height: 105px;margin-left: 35px;padding-top:15px;color: white ">
+                        verification a la reception
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="ss-right" style="width: 800px;float: left;text-align: left;margin-bottom: 80px;min-height: 500px;">
+            $screen_content
+        </div>
+    </div>
+    <div class="row">
+
+    </div>
+    <table id="webFooterTable" class="webFooterTable J_webFooterTable" cellpadding="0" cellspacing="0">
+        <tbody>
+        <tr>
+            <td align="center" valign="top" class="fk-moduleZoneWrap">
+
+                <div id="fk-webFooterZone"
+                     class="elemZone elemZoneModule J_moduleZone fk-webFooterZone fk-moduleZone forms sideForms">
+                    <div class="fk-moduleZoneBg fk-elemZoneBg J_zoneContentBg elemZoneBg"></div>
+
+                </div>
+                <div id="webFooter" class="webFooter">
+                    <div id="footer" class="footer">
+                        <table class="footerTop" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="top">
+                                <td class="topLeft"></td>
+                                <td class="topCenter"></td>
+                                <td class="topRight"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="footerMiddle" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="top">
+                                <td class="middleLeft"></td>
+                                <td class="middleCenter" align="center">
+                                    <div class="footerContent">
+                                        <div class="footerInfo footerInfoV2 J_footerInfo">©2018 Le soleil des hôtels de
+                                            niamey Tous droits réservés
+                                        </div>
+                                        <div class="footerSupport" id="footerSupport"><span
+                                                class="footerMobile J_supportItem"><a hidefocus="true"
+                                                                                      href="http://m.uochuang.cn"
+                                                                                      target="_blank">La version des téléphones portables</a></span>
+                                            <span class="bgplayerButton" id="bgplayerButton"
+                                                  style="display:none;"></span></div>
+                                    </div>
+                                </td>
+                                <td class="middleRight"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                        <table class="footerBottom" cellpadding="0" cellspacing="0">
+                            <tbody>
+                            <tr valign="top">
+                                <td class="bottomLeft"></td>
+                                <td class="bottomCenter"></td>
+                                <td class="bottomRight"></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+
+
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script type="text/javascript">
+    $('#checkindate').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'zh-CN',
+        todayBtn: true,
+        startDate: new Date(),
+        autoclose: true //选择日期后自动关闭
+    });
+
+    $('#checkoutdate').datepicker({
+        format: 'yyyy-mm-dd',
+        language: 'zh-CN',
+        todayBtn: true,
+        startDate: new Date(),
+        autoclose: true //选择日期后自动关闭
+    });
+</script>
+
+<script type="text/javascript" src="/page/sunshine/js/jquery-mousewheel.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/fai.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/jquery-ui-core.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/site.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/1033.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/city2.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/swfupload.min.js"></script>
+<script type="text/javascript" src="/page/sunshine/js/jquery.uploadify.min.js"></script>
+
+<script type="text/javascript">
+
+    Fai.top = window;
+    var _Global = {},
+            bgmCloseToOpen = false,
+            statId = -1,
+            _debug = false,
+            _isPre = false,
+            _devMode = false,
+            _colOtherStyleData = {
+                "independentList": [],
+                "hh": false,
+                "fh": false,
+                "y": 0,
+                "h": 0,
+                "layout4Width": 0,
+                "layout5Width": 0
+            },						// 当前页面的数据
+            _templateOtherStyleData = {
+                "independentList": [],
+                "hh": false,
+                "fh": false,
+                "h": 882,
+                "y": 0,
+                "layout4Width": 0,
+                "layout5Width": 0
+            },			// 全局的数据
+            _allowedHtmlUrl = true,
+            _openHtmlUrl = true,
+            _advertType = 1,
+            _isBUser = true;
+    var _templateDefLayout = {
+        BANNER_NAV: 0,
+        NAV_FLOAT: 1,
+        LEFT_NAV_BANNER_RIGHT_HIDE: 3,
+        LEFT_NAV_CENTER_BANNER_RIGHT_HIDE: 4,
+        LEFT_BANNER_NAV_RIGHT_HIDE: 5,
+        LEFT_NAV_EXPEND_CENTER_BANNER: 6,
+        CENTER_TOP_BANNER_RIGHT_HIDE: 7,
+        LEFT_HIDE_CENTER_TOP_BANNER: 8,
+        NAV_FLOAT_ON_BANNER: 9,
+        NAV_BANNER: 10
+    };
+    $(function () {
+//        Site.ajaxLoadModuleDom(103, 0, {"_ajaxLoadModuleList":[],"_partDomInfoList":[],"fullUrl":"http://www.soluxehotelniamey.com/en/user-col.jsp?rname=introduction&"});
+//        Site.loginSiteInit('soluxehotelniamey','vip.webportal.top', false,"");
+        //topBarMember
+//        if(Fai.top._manageMode) {
+//            Fai.top._bigAdOptions = {
+//                "sevenCelebration" : false,
+//                "sevenKnowMoreUrl" : "http://jz.faisco.com/alliance.html",
+//                "sevenQQUrl": "http://www.faisco.cn/count/agentCount.jsp?s=1",
+//                "dailyImgUrl": "http://www.faisco.cn/portal.jsp#appId=shop&tab=0?fromPageId=3"
+//            }
+//        }
+//        if(false) {
+//            if(Fai.top.$(".drawLottery").length == 0){
+//                if(Fai.top._isBUser) {
+//                    Site.popBigAdWindow();	// 弹出免费版引导付费广告
+//                } else {
+//                    Site.logDog(200004, 26);// A类用户3分钟后也Log一下 @ken 20180118
+//                }
+//            }
+//        }
+
+//        // 绑定退出事件
+//        Site.bindBeforeUnloadEvent(false, false, false);
+//        Site.initTemplateLayout(_templateDefLayout.NAV_FLOAT, true, false );
+        try {
+
+            // spider统计
+            // ajax统计
+            Site.total({
+                colId: 103,
+                pdId: -1,
+                ndId: -1,
+                sc: 0,
+                rf: "http://www.soluxehotelniamey.com/en/",
+                statId: statId
+            });
+            //保留旧用户的初始化版式区域4 和区域5 中，区域4的padding-right空间
+            Site.colLayout45Width();
+            //各个模块inc吐出脚本
+            Site.initLocaler([], false);
+            Site.initLocaleStyle(1115);
+            Site.bannerV2.init({
+                "_open": true,
+                "data": [{
+                    "tip": "",
+                    "desc": "",
+                    "imgWidth": 1920,
+                    "imgHeight": 380,
+                    "ot": 0,
+                    "i": "ABUIABACGAAg1a-G0gUokpC71AEwgA84-AI",
+                    "src": "http://13798983.s21i-13.faiusr.com/2/ABUIABACGAAg1a-G0gUokpC71AEwgA84-AI.jpg"
+                }],
+                "width": 1920,
+                "cusBannerWidth": 0,
+                "widthType": 0,
+                "height": 380,
+                "playTime": 4000,
+                "animateTime": 1500,
+                "from": "banner",
+                "btnType": 1,
+                "wideScreen": true,
+                "backgroundType": 0,
+                "backgroundColor": "",
+                "backgroundOpacity": 100
+            });
+            Site.hoverChangeImage();
+            Site.hoverStyle();
+            Fai.top.tabModule326Switch = false;
+            Site.initTabYStyle(326);
+            //收集浏览器信息，统计dog
+            Site.sendBrowerInfo(false);
+            //如果有首页弹窗的话，需要先打开首页弹窗
+            Site.initPage();	// 这个要放在最后，因为模块组初始化时会把一些模块隐藏，导致没有高度，所以要放最后执行
+            setTimeout(afterModuleLoaded, 0);
+            Site.triggerGobalEvent("siteReadyLoad");
+        } catch (e) {
+
+        }
+    });
+
+    function afterModuleLoaded() {
+//        Site.initPage2();
+//        Site.initBackToTopTool(false,false,true,'back to the top','firstStyle_02');
+
+    } // afterModuleLoaded end
+
+</script>
+
+
+<!-- /.main-container -->
+    #if($javascriptBlock) $javascriptBlock
+    #end
+
+
+</body>
+</html>
+
+
+
+

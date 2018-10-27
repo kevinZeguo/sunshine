@@ -1,0 +1,244 @@
+#set($layout = "layout_sunshine.vm")
+<style>
+    .help-block {
+        font-family: 宋体 !important;
+        font-size: 9px !important;
+        color: red;
+        width: 240px;
+        float: right;
+    }
+</style>
+<div class="hcr1">
+    <div class="r01">
+        <div class="r01l">填写订单信息</div>
+        <div class="r01r"><a href="http://www.soluxehotelniamey.com">首页</a> &gt; <a href="/cn.html">酒店预订</a> &gt;
+            填写订单信息
+        </div>
+    </div>
+    <form id="orderForm">
+        <div class="oi bgColor" style="background-color: gainsboro;width: 100%">房型信息</div>
+        <div class="" id="rinfo" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 10px 10px 10px;">
+                <tbody>
+                <tr>
+                    <td>
+                        <div></div>
+                    </td>
+                    <td>
+                        <div>&nbsp;</div>
+                    </td>
+                <tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        房型:
+                    </td>
+                    <td width="90%">
+                        <strong>$!{room.typeName}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        床型:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.badType}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        早餐:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.breakfast}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        网络:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.network}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        楼层:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.floor}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        简述:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.typeNote}</strong>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 100%;margin-top: 5px;margin-left: 1px">$!{room.typeName}</div>
+        <div style="display:none;">
+            <input type="hidden" id="typeId" name="typeId" value="$!{room.typeId}">
+            <input type="hidden" id="startDate" name="startDate" value="$!{startDate}">
+            <input type="hidden" id="endDate" name="endDate" value="$!{endDate}">
+            <input type="hidden" id="endDate" name="day" value="$!{day}">
+            <input type="hidden" id="numRetainRooms" name="numRetainRooms" value="$!{room.numRetainRooms}">
+        </div>
+        <div class="" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">房间数量：</td>
+                    #if($!{countList.size()}  > 0 && $!{room.perStatus} ==1 )
+                        <td><select name="orderNumRooms" style="width: 60px" id="orderNumRooms">
+                            #foreach($!{rCount} in $!{countList} )
+                                <option value="$!{rCount}">$!{rCount}</option>
+                            #end
+                        </select>
+                        </td>
+                    #else
+                        <td>
+                            对不起，房间已预订满！
+                        </td>
+                    #end
+
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody id="inCountHtml">
+                <tr>
+                    <td style="width:12%; height:30px;">客房：</td>
+                    #if($!{countList.size()}  > 0)
+                        <td><select name="inCount" style="width: 60px" id="inCount" class="inCount">
+                            <option value="1" selected>1</option>
+                            <option value="2">2</option>
+                        </select>
+                        </td>
+                    #else
+                        <td>
+                            对不起，房间已预订满！
+                        </td>
+                    #end
+                </tr>
+                </tbody>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">到店时间：</td>
+                    <td>$!{fmtStartDate}</td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">离店时间：</td>
+                    <td>$!{fmtEndDate}</td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">房费总计：</td>
+
+                    <td>
+                        <input type="hidden" id="sumSalePrice" name="sumSalePrice" value="$!{salePrice1}">
+                        <input type="hidden" id="salePirce" name="salePrice" value="$!{room.salePrice}">
+                        <input type="hidden" id="salePirce1" name="salePrice1" value="$!{salePrice1}">
+                        <input type="hidden" id="salePirce2" name="salePrice2" value="$!{salePrice2}">
+                        <span class="price popup" id="totalPrice"> $!{salePrice1}</span> XOF
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 100%;margin-top: 5px;margin-left: 1px">入住信息
+        </div>
+        <div class="" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">客人姓名 <span class="color1">*</span></td>
+                    <td class="form-group1">
+                        <div class="names form-control1" id="names">
+                            <input id="username" name="username" placeholder="用户姓名，如:张三" type="text"
+                                   class="text color3"> <span
+                                class="color3">必填项</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">公司</td>
+                    <td class="form-group1">
+                        <div class="names form-control1" id="names">
+                            <input id="company" name="company" placeholder="请输入公司名称" type="text"
+                                   class="text color3">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">E-mail</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <input placeholder="请输入邮箱" id="email" name="email" type="text" class="text"> <span
+                                class="color3">必填项，销售部会通过E-mail与您确认</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">联系手机</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <input id="telephone" name="telephone" placeholder="请输入联系电话" type="text" class="text">
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">最晚到店时间</td>
+                    <td><select style="width: 100px;" id="lateArriTime" name="lateArriTime">
+                        <option value="12:00之前">12:00之前</option>
+                        <option value="13:00">13:00</option>
+                        <option value="14:00">14:00</option>
+                        <option value="15:00">15:00</option>
+                        <option value="16:00">16:00</option>
+                        <option value="17:00">17:00</option>
+                        <option value="18:00" selected="selected">18:00</option>
+                        <option value="19:00">19:00</option>
+                        <option value="20:00">20:00</option>
+                        <option value="21:00">21:00</option>
+                        <option value="22:00">22:00</option>
+                        <option value="23:00">23:00</option>
+                        <option value="23:59">23:59</option>
+                        <option value="次日1:00">次日1:00</option>
+                        <option value="次日2:00">次日2:00</option>
+                        <option value="次日3:00">次日3:00</option>
+                        <option value="次日4:00">次日4:00</option>
+                        <option value="次日5:00">次日5:00</option>
+                    </select>
+                        <span class="color3">(请在最晚到店时间之前办理入住手续)</span>
+                    ##                            ，有<span id="teshu" class="teshu">特殊需求</span></span>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">特殊要求</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <textarea placeholder="请输入特殊要求" id="comment" name="comment" cols="70" rows="4"></textarea>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <input id="env" name="env" type="hidden" value="cn">
+        </div>
+        <div class="oii" style="margin-top: 20px;">
+            <input type="hidden" id="needCcv" name="needCcv" value="0">
+            <input type="hidden" id="canSubmit" name="canSubmit" value="1">
+            <input id="subOrder" type="submit" value="确定下单" class="submit-btn">
+        </div>
+    </form>
+</div>
+
+<script src="/plug-in/public/hotel/order.js?_dc=$!{staticVersion}"></script>

@@ -1,0 +1,86 @@
+<!-- 左侧菜单列表 -->
+<!-- 左侧菜单列表 -->
+<!-- 左侧菜单列表 -->
+<!-- 左侧菜单列表 -->
+<!-- 左侧菜单列表 -->
+<ul class="nav nav-list menu-ul" id="menu-ul">
+    #foreach($menu in $leftMenuList)
+    ##        存在子菜单
+        #if($menu.childMenuList.size() > 0)
+            <li #if($menu.isOpen == 1)  class="active open hsub"
+            #else
+                                        class="hsub"
+            #end >
+                <a href="$menu.functionUrl" class="dropdown-toggle">
+                    <i class="$menu.iconclas"></i>
+                    <span class="menu-text"> $menu.functionName </span>
+                    <b class="arrow fa fa-angle-down"></b>
+                </a>
+
+                <b class="arrow"></b>
+                #if($menu.childMenuList.size() > 0)
+                    <ul class="submenu">
+                        #foreach($smenu in $menu.childMenuList)
+                            <li class="#if($smenu.functionId == $select_menu_id) active on #end">
+                                <a href="$smenu.functionUrl">
+                                    <i class="menu-icon fa fa-caret-right"></i>
+                                    $smenu.functionName
+                                </a>
+                                <b class="arrow"></b>
+                            </li>
+                        #end
+                    </ul>
+                #end
+            </li>
+        #else
+        ##            不存在子菜单
+            <li #if($menu.isOpen == 1)  class="active open hsub"
+            #else
+                                        class="hsub"
+            #end >
+                <a href="$menu.functionUrl"> <i class="$menu.iconclas"></i>
+                    <span class="menu-text"> $menu.functionName </span>
+                </a>
+                <b class="arrow"></b>
+            </li>
+        #end
+    #end
+</ul>
+
+##<div class="nav-tree" style="position: fixed;">
+##    <a class="icon-off" style="position: absolute;right: 0px;"></a>
+##
+##    <div class="nav-scoll scrollbar-inner">
+##        <div class="tree-layout"></div>
+##        <div class="tree-height">
+##            #foreach($menu in $leftMenuList)
+##                #if($!{menu.right} == true)
+##                    <dl>
+##                        #if($menu.list.size() != 0)
+##                            <dt>$!{menu.name}</dt>
+##                        #else
+##                            <dt class="dt-menu"><a href="$!{menu.value}" id="$!{menu.ext1}">$!{menu.name}</a></dt>
+##                        #end
+##                        #if($menu.list.size() != 0)
+##                            #foreach($item in $menu.list)
+##                                #if($!{item.right} == true)
+##                                    <dd><a data-url="$!{item.value}" href="$!{item.value}" #if($item.ext5 == "target")
+##                                           target="_blank" data-target="_blank" #end
+##                                           id="$!{item.ext1}">$!{item.name}</a>
+##                                    </dd>
+##                                #end
+##                            #end
+##                        #end
+##                    </dl>
+##                #end
+##            #end
+##        </div>
+##    </div>
+##
+##
+##</div>
+
+
+##<script>
+##    $("#" + selected_menu_id).addClass("active on");
+##</script>

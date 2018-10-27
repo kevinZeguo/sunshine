@@ -1,0 +1,370 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Le soleil de réservation d’hôtel de niamey</title>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+        }
+
+        hcr1 {
+            float: left;
+            width: 694px;
+            margin-left: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 2px;
+        }
+
+        .r01 {
+            float: left;
+            height: 34px;
+            width: 100%;
+            line-height: 34px;
+            background-color: #c6b26d;
+        }
+
+        .r01TextCenter {
+            font-size: 14px;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+        }
+
+        .r01l {
+            float: left;
+            height: 34px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #65451d;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fef6b7;
+        }
+
+        .r01r {
+            float: right;
+            height: 34px;
+            text-align: right;
+            padding-right: 6px;
+            background-color: #c6b26d;
+        }
+
+        .r02 {
+            float: left;
+            width: 694px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            line-height: 20px;
+        }
+
+        .rooms {
+            float: left;
+            width: 694px;
+        }
+
+        .rooms table td {
+            height: 28px;
+            padding: 7px;
+            border-bottom-width: 1px;
+            border-bottom-style: dashed;
+            border-bottom-color: #E3E3E3;
+        }
+
+        .rooms .text-weizhi1 {
+            width: 30%;
+        }
+
+        .rooms .text-weizhi2 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi3 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi4 {
+            width: 10%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi5 {
+            width: 15%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi6 {
+            width: 15%;
+            text-align: left;
+            padding-left: 21px;
+        }
+
+        /*.rooms .padding-top-bottom{ padding-top:4px; padding-bottom:4px;}*/
+        .rooms .border-bottom {
+            border-bottom: dashed 1px #CCC
+        }
+
+        .rooms .rpName {
+            padding-left: 18px;
+        }
+
+        .rooms a.book {
+            background: url(../../images/bookbtn.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .rooms a.booknone {
+            background: url(../../images/bookbtn1.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .r02 li {
+            float: left;
+            width: 230px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .r02 li img {
+            border: 4px solid #5f3e15;
+        }
+
+        .oi {
+            width: 688px;
+            line-height: 30px;
+            float: left;
+            padding-left: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .oii {
+            float: left;
+            width: 688px;
+            padding-left: 6px;
+            line-height: 22px;
+        }
+
+        .oii .price {
+            font-size: 16px;
+            color: #f60;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #f60;
+            display: inline-block;
+            font-family: Tahoma, Geneva, sans-serif;
+            cursor: pointer;
+        }
+
+        .oii span.teshu {
+            display: inline-block;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #c30;
+            color: #C30;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="main-content">
+    <div style="margin-left: 20px">
+        Bonjour, clients
+    </div>
+    <div class="page-wrap">
+        <div style="margin-left: 40px">
+            Nous avons déjà reçu votre rendez-vous de ministères, nous vous dès que possible au rendez-vous, votre
+            chambre pour toute information complémentaire ou prise de rendez-vous:
+        </div>
+        <br>
+    </div>
+    <div class="ss-right" style="width: 800px;float: left;text-align: left;margin-bottom: 80px;min-height: 500px;">
+        <style>
+            .help-block {
+                font-family: 宋体 !important;
+                font-size: 9px !important;
+                color: red;
+                width: 240px;
+                float: right;
+            }
+        </style>
+        <div class="hcr1">
+            <div class="r01">
+                <div class="r01l">L’information des commandes</div>
+            </div>
+        </div>
+        <div class="oi bgColor" style="background-color: gainsboro;width: 99%">Type de chambre de l’information</div>
+        <div class="" id="rinfo" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin: 20px 10px 10px 10px;">
+                <tbody>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        Type de chambre:
+                    </td>
+                    <td width="90%">
+                        <strong>$!{room.typeName}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        Lit de:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.badType}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        déjeuner:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.breakfast}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        réseau:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.network}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        étages:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.floor}</strong>
+                    </td>
+                </tr>
+                <tr style="height: 20px">
+                    <td width="12%">
+                        résumé:
+                    </td>
+                    <td width="85%">
+                        <strong>$!{room.typeNote}</strong>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 99%;margin-top: 5px;margin-left: 1px">$!{room.typeName}
+        </div>
+        <div class="" style="border: 1px solid slategray">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">Nombre de pièces：</td>
+                    <td>
+                        <span>$!{order.orderNumRooms}</span>
+                    </td>
+
+                </tr>
+                </tbody>
+            </table>
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody id="inCountHtml">
+                    #foreach($num in $numList)
+                    <tr>
+                        <td style="width:12%; height:30px;">tôle!${velocityCount}：</td>
+                        <td>
+                            <span>$!{num}</span>personnes
+                        </td>
+                    </tr>
+                    #end
+                </tbody>
+            </table>
+
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">Dans le temps：</td>
+                    <td>$!{startDate}dans，$!{endDate}départ
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">Un total：</td>
+
+                    <td>
+                        <span>$!{order.sumSalePrice}XOF</span>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="oi bgColor" id="brrp"
+             style="background-color: gainsboro;width: 99%;margin-top: 5px;margin-left: 1px;">Informations dans
+        </div>
+        <div class="" style="border: 1px solid slategray;height:300px;">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-left: 10px">
+                <tbody>
+                <tr>
+                    <td style="width:12%; height:30px;">leur
+                    </td>
+                    <td class="form-group1">
+                        <div class="names form-control1" id="names">
+                            <span>$!{order.username}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">E-mail</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <span>$!{order.email}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">Téléphone portable liens</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <span>$!{order.telephone}</span>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">Magasin au plus tard</td>
+                    <td>$!{order.lateArriTime}</td>
+                </tr>
+                <tr>
+                    <td style="width:12%; height:30px;">Besoins particuliers</td>
+                    <td class="form-group1">
+                        <div class="form-control1">
+                            <textarea id="comment" name="comment" cols="70" rows="4"
+                                      disabled>$!{order.comment}</textarea>
+                        </div>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <div style="height: 80px;width: 100%;background-color: gainsboro;margin-top: 50px;text-align: center;padding-top:30px">
+            <span>Toute question concernant les chambres d’hôtel à notre demande par courrier électronique, à la boîte aux lettres：</span><br>
+            <span>reservationniamey.soluxeint@gmail.com</span>
+        </div>
+    </div>
+</div>
+</body>
+</html>

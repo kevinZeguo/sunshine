@@ -1,0 +1,80 @@
+#set($page_title=" 字典管理")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+
+<script src="/plug-in/sys/attr/add.js?_dc=$!{staticVersion}"></script>
+
+<form class="form-horizontal" id="attrForm" role="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">字典管理<span style="font-size: 12px">>>#if($add == 'add')新增字典 #else
+            编辑字典 #end</span></h4>
+    </div>
+    <div class="modal-body">
+        <fieldset>
+            <input type="hidden" id="attrId" name="attrId" value="$!{attr.attrId}">
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="attrGroupId"> * 字典组:</label>
+
+                <div class="col-xs-8">
+                    <select id="attrGroupId" name="attrGroupId" class="col-xs-8 ui-autocomplete-select"
+                            placeholder="请选择字典组"
+                            value="$!{attr.attrGroupId}">
+                        #foreach($group in $groupList)
+                            <option value="$group.attrGroupId">$group.groupName</option>
+                        #end
+                    </select>
+
+                </div>
+            </div>
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="attrCode">* 字典编码:</label>
+
+                <div class="col-xs-8">
+                    <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入字典编码" id="attrCode"
+                           name="attrCode" value="$!{attr.attrCode}"/>
+
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="attrValue">* 字典值: </label>
+
+                <div class="col-xs-8">
+                    <input class="col-xs-8 ui-autocomplete-input" placeholder="请输入字典值"
+                           id="attrValue"
+                           name="attrValue" value="$!{attr.attrValue}"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="attrOrder">字典顺序: </label>
+
+                <div class="col-xs-8">
+                    <input type="text" class="col-xs-8 ui-autocomplete-input" placeholder="请输入字典顺序" id="attrOrder"
+                           name="attrOrder" value="$!{attr.attrOrder}"/>
+                </div>
+            </div>
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="attrDesc"> 字典描述: </label>
+
+                <div class="col-xs-8">
+                    <input class="col-xs-8 ui-autocomplete-input" placeholder="请输入字典描述"
+                           id="attrDesc"
+                           name="attrDesc" value="$!{attr.attrDesc}"/>
+                </div>
+            </div>
+        </fieldset>
+    </div>
+
+    <div class="modal-footer">
+        <button class="btn btn-sm btn-primary" type="submit" id="submit-btn" name="submit-btn">
+            保存
+        </button>
+        &nbsp; &nbsp; &nbsp;
+        <button class="btn btn-white btn-info " type="button" id="closeModal">
+            取消
+        </button>
+    </div>
+</form>

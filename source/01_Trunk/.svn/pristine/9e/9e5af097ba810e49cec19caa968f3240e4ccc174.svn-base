@@ -1,0 +1,301 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Sunshine Niamey hotel reservation information.</title>
+    <style type="text/css">
+        body {
+            font-size: 14px;
+        }
+
+        hcr1 {
+            float: left;
+            width: 694px;
+            margin-left: 10px;
+            border: 1px solid #e0e0e0;
+            padding: 2px;
+        }
+
+        .r01 {
+            float: left;
+            height: 34px;
+            width: 100%;
+            line-height: 34px;
+            background-color: #c6b26d;
+        }
+
+        .r01TextCenter {
+            font-size: 14px;
+            font-weight: bold;
+            color: #FFF;
+            text-align: center;
+        }
+
+        .r01l {
+            float: left;
+            height: 34px;
+            padding-left: 5px;
+            padding-right: 5px;
+            background-color: #65451d;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+            color: #fef6b7;
+        }
+
+        .r01r {
+            float: right;
+            height: 34px;
+            text-align: right;
+            padding-right: 6px;
+            background-color: #c6b26d;
+        }
+
+        .r02 {
+            float: left;
+            width: 694px;
+            margin-top: 6px;
+            margin-bottom: 6px;
+            line-height: 20px;
+        }
+
+        .rooms {
+            float: left;
+            width: 694px;
+        }
+
+        .rooms table td {
+            height: 28px;
+            padding: 7px;
+            border-bottom-width: 1px;
+            border-bottom-style: dashed;
+            border-bottom-color: #E3E3E3;
+        }
+
+        .rooms .text-weizhi1 {
+            width: 30%;
+        }
+
+        .rooms .text-weizhi2 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi3 {
+            width: 10%;
+            text-align: left;
+        }
+
+        .rooms .text-weizhi4 {
+            width: 10%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi5 {
+            width: 15%;
+            text-align: center;
+        }
+
+        .rooms .text-weizhi6 {
+            width: 15%;
+            text-align: left;
+            padding-left: 21px;
+        }
+
+        /*.rooms .padding-top-bottom{ padding-top:4px; padding-bottom:4px;}*/
+        .rooms .border-bottom {
+            border-bottom: dashed 1px #CCC
+        }
+
+        .rooms .rpName {
+            padding-left: 18px;
+        }
+
+        .rooms a.book {
+            background: url(../../images/bookbtn.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .rooms a.booknone {
+            background: url(../../images/bookbtn1.png);
+            background-repeat: no-repeat;
+            display: block;
+            line-height: 19px;
+            height: 19px;
+            width: 44px;
+            color: #FFF;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        .r02 li {
+            float: left;
+            width: 230px;
+            text-align: center;
+            margin-bottom: 10px;
+        }
+
+        .r02 li img {
+            border: 4px solid #5f3e15;
+        }
+
+        .oi {
+            width: 688px;
+            line-height: 30px;
+            float: left;
+            padding-left: 6px;
+            font-size: 14px;
+            font-weight: bold;
+        }
+
+        .oii {
+            float: left;
+            width: 688px;
+            padding-left: 6px;
+            line-height: 22px;
+        }
+
+        .oii .price {
+            font-size: 16px;
+            color: #f60;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #f60;
+            display: inline-block;
+            font-family: Tahoma, Geneva, sans-serif;
+            cursor: pointer;
+        }
+
+        .oii span.teshu {
+            display: inline-block;
+            border-bottom-width: 1px;
+            border-bottom-style: dotted;
+            border-bottom-color: #c30;
+            color: #C30;
+            cursor: pointer;
+        }
+
+    </style>
+
+</head>
+<body>
+<div class="main-content">
+    <div style="width: 800px;margin-left: 200px">
+
+        <div style=" text-align: center">
+            <img src="http://13798983.s21i-13.faiusr.com/4/ABUIABAEGAAg9aPC0wUooIC5rQYwkgI4Pg.png"
+                 style="width: 250px;height: 70px">
+        </div>
+        <h2 style="text-align: center;">CONFIRMATION</h2>
+    </div>
+    <div style="text-align: center;margin-left: 200px">
+        <table style="width: 800px">
+            <tr style="border-bottom:1px solid black">
+                <td style="border-bottom:1px solid black">A:</td>
+                <td style="border-bottom:1px solid black">$!{order.username}</td>
+                <td style="border-bottom:1px solid black">De:</td>
+                <td style="border-bottom:1px solid black"></td>
+            </tr>
+            <tr style="border-bottom: 1px solid black">
+                <td width="15%" style="border-bottom:1px solid black">Compagnie:</td>
+                <td width="35%" style="border-bottom:1px solid black">$!{order.company}</td>
+                <td width="15%" style="border-bottom:1px solid black">Compagnie:</td>
+                <td width="35%" style="border-bottom:1px solid black">Soluxe Hotel Niamey</td>
+            </tr>
+            <tr style="border-bottom: 1px solid black">
+                <td width="15%" style="border-bottom:1px solid black">Email::</td>
+                <td width="35%" style="border-bottom:1px solid black">$!{order.email}</td>
+                <td width="15%" style="border-bottom:1px solid black">Email::</td>
+                <td width="35%" style="border-bottom:1px solid black">reservationniamey.soluxeint@gmail.com</td>
+            </tr>
+            <tr style="border-bottom: 1px solid black">
+                <td width="15%" style="border-bottom:1px solid black">Telephone:</td>
+                <td width="35%" style="border-bottom:1px solid black">$!{order.telephone}</td>
+                <td width="15%" style="border-bottom:1px solid black">Telephone:</td>
+                <td width="35%" style="border-bottom:1px solid black">00227-20332222
+                    <br>
+                    (Numero de reservation)
+                </td>
+            </tr>
+            <tr style="border-bottom: 1px solid black">
+                <td width="15%" style="border-bottom:1px solid black">Sujet:</td>
+                <td width="35%" style="border-bottom:1px solid black">Nouvelle Reservation</td>
+                <td width="15%" style="border-bottom:1px solid black"></td>
+                <td width="35%" style="border-bottom:1px solid black"></td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div style="margin-left: 200px;width: 800px">
+        <p>
+            Merci beaucoup pour votre soutien a l’Hotel Soluxe Niamey, nous sommes ravis de vous confirmer la /les
+            reservations comme suit:
+        </p>
+    </div>
+    <div style="margin-left: 200px">
+        <table style="width: 800px">
+            <tr>
+                <td style="border: 1px solid black ;width: 20%">Nom et prenom:</td>
+                <td style="border: 1px solid black ;width: 20%"> Date d’arrivee</td>
+                <td style="border: 1px solid black;width: 20%">Date de depart</td>
+                <td style="border: 1px solid black;width: 20%">Type de chambre/unite</td>
+                <td style="border: 1px solid black;width: 20%">Taux de chambre(xof/nuit)</td>
+            </tr>
+            <tr style="height: 30px">
+                <td style="border: 1px solid black">$!{order.username}</td>
+                <td style="border: 1px solid black">$!{startDate}</td>
+                <td style="border: 1px solid black">$!{endDate}</td>
+                <td style="border: 1px solid black">$!{room.typeName}/$!{order.orderNumRooms}</td>
+                <td style="border: 1px solid black">$!{salePrice1}</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div style="margin-left: 200px;">
+        <table width="800px">
+            <tr>
+                <td width="10%">
+                    Remarques:
+                </td>
+                <td style="border-bottom: 1px solid black;width:90%">$!{order.comment}</td>
+            </tr>
+        </table>
+    </div>
+    <br>
+    <div style="margin-left: 200px;width: 800px">
+        <p>
+                Remarque：l’heure du check in est 14h00. Si les chambres sont requises plus tot, un preavis d’un jour est requis
+            et la chambre sera guardee en fonction des chambres deja liberees. L’heure du depart est midi (12h00). Si le
+            client voudrais prolonger jusqu’a 18h00, une demi-journee de 50% du tarif normal sera appliquer. Apres 18h00
+            le plain tarif sera applique.
+        <p>
+            Veuillez, s’il vous plait, nous informer des que possible pour toutes modifications. Merci et cordialement!
+        </p>
+    </div>
+    <br>
+    <div style="margin-left: 200px;width: 800px">
+
+        <div style="text-align: left">
+            Add:AVENUE OF AFRICA,N 1100,NIAMEY-NIGER
+        </div>
+        <br>
+        <div style="text-align: left">
+            Tel : 00227-20332222 Fax: 00227-20733888
+        </div>
+        <div style="text-align: left">
+            E-mail: reservationniamey.soluxeint@gmail.com
+        </div>
+        <div style="text-align: left">
+            Website: www.soluxehotelniamey.com
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

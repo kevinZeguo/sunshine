@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijing.geek.cms.sunshine.dao.TbRoomTypeDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sunshine.domain.TbRoomType">
+        <id column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="type_name" jdbcType="VARCHAR" property="typeName"/>
+        <result column="num_rooms" jdbcType="INTEGER" property="numRooms"/>
+        <result column="price_1" jdbcType="DOUBLE" property="price1"/>
+        <result column="price_2" jdbcType="DOUBLE" property="price2"/>
+        <result column="sale_price_1" jdbcType="DOUBLE" property="salePrice1"/>
+        <result column="sale_price_2" jdbcType="DOUBLE" property="salePrice2"/>
+        <result column="price_note" jdbcType="VARCHAR" property="priceNote"/>
+        <result column="bad_type" jdbcType="VARCHAR" property="badType"/>
+        <result column="breakfast" jdbcType="VARCHAR" property="breakfast"/>
+        <result column="network" jdbcType="VARCHAR" property="network"/>
+        <result column="floor" jdbcType="VARCHAR" property="floor"/>
+        <result column="type_note" jdbcType="VARCHAR" property="typeNote"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="c_time" jdbcType="TIMESTAMP" property="cTime"/>
+        <result column="u_time" jdbcType="TIMESTAMP" property="uTime"/>
+        <result column="del_status" jdbcType="INTEGER" property="delStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    type_id, type_name, num_rooms, price_1, price_2, sale_price_1, sale_price_2, price_note,
+    bad_type, breakfast, network, floor, type_note, comment, c_time, u_time, del_status
+  </sql>
+    <select id="selectById" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_room_type
+        where type_id = #{typeId,jdbcType=INTEGER}
+        and env = #{env}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from tb_room_type
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.beijing.geek.cms.sunshine.domain.TbRoomType">
+    insert into tb_room_type (type_id, type_name, num_rooms,
+      price_1, price_2, sale_price_1, 
+      sale_price_2, price_note, bad_type, 
+      breakfast, network, floor, 
+      type_note, comment, c_time, 
+      u_time, del_status)
+    values (#{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, #{numRooms,jdbcType=INTEGER}, 
+      #{price1,jdbcType=DOUBLE}, #{price2,jdbcType=DOUBLE}, #{salePrice1,jdbcType=DOUBLE}, 
+      #{salePrice2,jdbcType=DOUBLE}, #{priceNote,jdbcType=VARCHAR}, #{badType,jdbcType=VARCHAR}, 
+      #{breakfast,jdbcType=VARCHAR}, #{network,jdbcType=VARCHAR}, #{floor,jdbcType=VARCHAR}, 
+      #{typeNote,jdbcType=VARCHAR}, #{comment,jdbcType=VARCHAR}, #{cTime,jdbcType=TIMESTAMP}, 
+      #{uTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER})
+  </insert>
+    <update id="updateById" parameterType="com.beijing.geek.cms.sunshine.domain.TbRoomType">
+    update tb_room_type
+    set type_name = #{typeName,jdbcType=VARCHAR},
+      num_rooms = #{numRooms,jdbcType=INTEGER},
+      price_1 = #{price1,jdbcType=DOUBLE},
+      price_2 = #{price2,jdbcType=DOUBLE},
+      sale_price_1 = #{salePrice1,jdbcType=DOUBLE},
+      sale_price_2 = #{salePrice2,jdbcType=DOUBLE},
+      price_note = #{priceNote,jdbcType=VARCHAR},
+      bad_type = #{badType,jdbcType=VARCHAR},
+      breakfast = #{breakfast,jdbcType=VARCHAR},
+      network = #{network,jdbcType=VARCHAR},
+      floor = #{floor,jdbcType=VARCHAR},
+      type_note = #{typeNote,jdbcType=VARCHAR},
+      comment = #{comment,jdbcType=VARCHAR},
+      c_time = #{cTime,jdbcType=TIMESTAMP},
+      u_time = #{uTime,jdbcType=TIMESTAMP},
+      del_status = #{delStatus,jdbcType=INTEGER}
+    where type_id = #{typeId,jdbcType=INTEGER}
+  </update>
+
+    <select id="selectAllList" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_room_type
+        where del_status = 1
+        and env = 'cn'
+        order by type_id
+    </select>
+</mapper>

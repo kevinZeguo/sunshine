@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysRoleFunctionDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysRoleFunction">
+
+        <id column="role_func_id" property="roleFuncId" jdbcType="INTEGER"/>
+        <result column="operation" property="operation" jdbcType="VARCHAR"/>
+        <result column="function_id" property="functionId" jdbcType="INTEGER"/>
+        <result column="role_id" property="roleId" jdbcType="INTEGER"/>
+        <result column="data_rule" property="dataRule" jdbcType="VARCHAR"/>
+        <result column="creator" property="creator" jdbcType="INTEGER"/>
+        <result column="created" property="created" jdbcType="TIMESTAMP"/>
+        <result column="modifier" property="modifier" jdbcType="INTEGER"/>
+        <result column="modified" property="modified" jdbcType="TIMESTAMP"/>
+        <result column="deleted" property="deleted" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+
+    role_func_id, operation, function_id, role_id, data_rule, creator, created, modifier, 
+    modified, deleted
+  </sql>
+    <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+
+        select
+        <include refid="Base_Column_List"/>
+        from sys_role_function
+        where role_func_id = #{roleFuncId,jdbcType=INTEGER}
+    </select>
+
+    <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysRoleFunction">
+        <selectKey keyProperty="roleFuncId" resultType="Integer">
+            SELECT @@IDENTITY AS roleFuncId
+        </selectKey>
+        insert into sys_role_function ( operation, function_id,role_id, data_rule, creator,created, modifier, modified,
+        deleted)
+        values ( #{operation,jdbcType=VARCHAR}, #{functionId,jdbcType=INTEGER},
+        #{roleId,jdbcType=INTEGER}, #{dataRule,jdbcType=VARCHAR}, #{creator,jdbcType=INTEGER},
+        now(), #{modifier,jdbcType=INTEGER},now(), 0)
+    </insert>
+
+    <sql id="fun_col">
+        fu.function_id as functionId,fu.function_iframe functionIframe,fu.function_level functionLevel,
+        fu.function_name functionName,fu.function_order functionOrder,fu.function_url functionUrl,
+        fu.parent_function_id parentFunctionId,fu.icon_id iconId,fu.functiontype,fu.creator,
+        fu.created,fu.modifier,fu.modified,fu.deleted ,fu.function_menu_name functionMenuName
+    </sql>
+
+    <select id="selectRightMenuListByRoleId" resultType="SysFunction" parameterType="int">
+        select
+        <include refid="fun_col"/>
+        ,rf.role_id roleId
+        from sys_function fu
+        left join sys_role_function rf on fu.function_id = rf.function_id
+        and rf.deleted = 0 and rf.role_id = #{roleId}
+        where fu.deleted = 0
+        order by fu.function_level ,fu.function_order
+    </select>
+
+    <delete id="deleteByRoleId" parameterType="SysRoleFunction">
+        update sys_role_function set deleted = 1 , modified  = now(),modifier = #{modifier}
+        where role_id = #{roleId}
+        and deleted = 0
+    </delete>
+</mapper>

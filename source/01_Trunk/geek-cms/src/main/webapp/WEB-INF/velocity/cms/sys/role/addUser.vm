@@ -1,0 +1,29 @@
+#set($page_title=" 角色管理")
+#set($selected_menu_id='menu_task_center_index')
+#set($layout = "blank.vm")
+<script src="/plug-in/sys/role/addUser.js?_dc=$!{staticVersion}"></script>
+
+<form class="form-horizontal" id="roleForm" role="form">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">×</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">角色管理<span style="font-size: 12px">>>用户授权</span></h4>
+    </div>
+    <div class="modal-body">
+        <fieldset>
+            <input type="hidden" id="roleId" name="roleId" value="$!{roleId}">
+
+            <div class="form-group col-xs-12">
+                <label class="col-xs-4 control-label no-padding-right" for="roleName"> * 角色名称:</label>
+
+                <div class="col-xs-8">
+                    <input type="text" id="roleName" name="roleName" class="col-xs-8 ui-autocomplete-input"
+                           placeholder="角色名称" value="$!{role.roleName}"/>
+
+                </div>
+            </div>
+
+        </fieldset>
+    </div>
+
+</form>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="geek-cms:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="geek-cms.war">
+      <element id="artifact" artifact-name="geek-cms:war exploded" />
+    </root>
+  </artifact>
+</component>

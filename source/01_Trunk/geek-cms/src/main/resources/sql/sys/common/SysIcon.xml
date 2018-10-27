@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.common.SysIconDao" >
+  <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.common.SysIcon" >
+
+    <id column="icon_id" property="iconId" jdbcType="INTEGER" />
+    <result column="extend" property="extend" jdbcType="VARCHAR" />
+    <result column="iconclas" property="iconclas" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="SMALLINT" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.beijing.geek.cms.sys.domain.common.SysIconWithBLOBs" extends="BaseResultMap" >
+
+    <result column="content" property="content" jdbcType="LONGVARBINARY" />
+    <result column="path" property="path" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+
+    icon_id, extend, iconclas, name, type, creator, created, modifier, modified, deleted
+  </sql>
+  <sql id="Blob_Column_List" >
+
+    content, path
+  </sql>
+  <select id="selectById" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from sys_icon
+    where icon_id = #{iconId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+
+    delete from sys_icon
+    where icon_id = #{iconId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.common.SysIconWithBLOBs" >
+
+    insert into sys_icon (icon_id, extend, iconclas, 
+      name, type, creator, 
+      created, modifier, modified, 
+      deleted, content, path
+      )
+    values (#{iconId,jdbcType=INTEGER}, #{extend,jdbcType=VARCHAR}, #{iconclas,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{type,jdbcType=SMALLINT}, #{creator,jdbcType=INTEGER}, 
+      #{created,jdbcType=TIMESTAMP}, #{modifier,jdbcType=INTEGER}, #{modified,jdbcType=TIMESTAMP}, 
+      #{deleted,jdbcType=INTEGER}, #{content,jdbcType=LONGVARBINARY}, #{path,jdbcType=LONGVARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.beijing.geek.cms.sys.domain.common.SysIconWithBLOBs" >
+
+    insert into sys_icon
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="iconId != null" >
+        icon_id,
+      </if>
+      <if test="extend != null" >
+        extend,
+      </if>
+      <if test="iconclas != null" >
+        iconclas,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="type != null" >
+        type,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+      <if test="content != null" >
+        content,
+      </if>
+      <if test="path != null" >
+        path,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="iconId != null" >
+        #{iconId,jdbcType=INTEGER},
+      </if>
+      <if test="extend != null" >
+        #{extend,jdbcType=VARCHAR},
+      </if>
+      <if test="iconclas != null" >
+        #{iconclas,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        #{content,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="path != null" >
+        #{path,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdSelective" parameterType="com.beijing.geek.cms.sys.domain.common.SysIconWithBLOBs" >
+
+    update sys_icon
+    <set >
+      <if test="extend != null" >
+        extend = #{extend,jdbcType=VARCHAR},
+      </if>
+      <if test="iconclas != null" >
+        iconclas = #{iconclas,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="type != null" >
+        type = #{type,jdbcType=SMALLINT},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null" >
+        modified = #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+      <if test="content != null" >
+        content = #{content,jdbcType=LONGVARBINARY},
+      </if>
+      <if test="path != null" >
+        path = #{path,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where icon_id = #{iconId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByIdWithBLOBs" parameterType="com.beijing.geek.cms.sys.domain.common.SysIconWithBLOBs" >
+
+    update sys_icon
+    set extend = #{extend,jdbcType=VARCHAR},
+      iconclas = #{iconclas,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=SMALLINT},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER},
+      content = #{content,jdbcType=LONGVARBINARY},
+      path = #{path,jdbcType=LONGVARCHAR}
+    where icon_id = #{iconId,jdbcType=INTEGER}
+  </update>
+  <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.common.SysIcon" >
+
+    update sys_icon
+    set extend = #{extend,jdbcType=VARCHAR},
+      iconclas = #{iconclas,jdbcType=VARCHAR},
+      name = #{name,jdbcType=VARCHAR},
+      type = #{type,jdbcType=SMALLINT},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where icon_id = #{iconId,jdbcType=INTEGER}
+  </update>
+</mapper>

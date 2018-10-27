@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.beijing.geek.cms.sunshine.dao.TbRoomTypeInitDao">
+    <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sunshine.domain.TbRoomTypeInit">
+        <id column="init_id" jdbcType="INTEGER" property="initId"/>
+        <result column="type_id" jdbcType="INTEGER" property="typeId"/>
+        <result column="type_name" jdbcType="VARCHAR" property="typeName"/>
+        <result column="num_rooms" jdbcType="INTEGER" property="numRooms"/>
+        <result column="num_retain_rooms" jdbcType="INTEGER" property="numRetainRooms"/>
+        <result column="price" jdbcType="DOUBLE" property="price"/>
+        <result column="sale_price" jdbcType="DOUBLE" property="salePrice"/>
+        <result column="room_date" jdbcType="TIMESTAMP" property="roomDate"/>
+        <result column="comment" jdbcType="VARCHAR" property="comment"/>
+        <result column="c_time" jdbcType="TIMESTAMP" property="cTime"/>
+        <result column="u_time" jdbcType="TIMESTAMP" property="uTime"/>
+        <result column="del_status" jdbcType="INTEGER" property="delStatus"/>
+        <result column="per_status" jdbcType="INTEGER" property="perStatus"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    init_id, type_id, type_name, num_rooms, num_retain_rooms, price, sale_price, room_date,
+    comment, c_time, u_time, del_status,per_status
+  </sql>
+    <select id="selectById" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_room_type_init
+        where init_id = #{initId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteById" parameterType="java.lang.Integer">
+    delete from tb_room_type_init
+    where init_id = #{initId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.beijing.geek.cms.sunshine.domain.TbRoomTypeInit">
+    insert into tb_room_type_init (init_id, type_id, type_name,
+      num_rooms, num_retain_rooms, price, 
+      sale_price, room_date, comment, 
+      c_time, u_time, del_status
+      )
+    values (#{initId,jdbcType=INTEGER}, #{typeId,jdbcType=INTEGER}, #{typeName,jdbcType=VARCHAR}, 
+      #{numRooms,jdbcType=INTEGER}, #{numRetainRooms,jdbcType=INTEGER}, #{price,jdbcType=DOUBLE}, 
+      #{salePrice,jdbcType=DOUBLE}, #{roomDate,jdbcType=TIMESTAMP}, #{comment,jdbcType=VARCHAR}, 
+      #{cTime,jdbcType=TIMESTAMP}, #{uTime,jdbcType=TIMESTAMP}, #{delStatus,jdbcType=INTEGER}
+      )
+  </insert>
+    <update id="updateById" parameterType="com.beijing.geek.cms.sunshine.domain.TbRoomTypeInit">
+        update tb_room_type_init
+        set type_id = #{typeId,jdbcType=INTEGER},
+        type_name = #{typeName,jdbcType=VARCHAR},
+        num_rooms = #{numRooms,jdbcType=INTEGER},
+        num_retain_rooms = #{numRetainRooms,jdbcType=INTEGER},
+        price = #{price,jdbcType=DOUBLE},
+        sale_price = #{salePrice,jdbcType=DOUBLE},
+        room_date = #{roomDate,jdbcType=TIMESTAMP},
+        comment = #{comment,jdbcType=VARCHAR},
+        c_time = #{cTime,jdbcType=TIMESTAMP},
+        u_time = #{uTime,jdbcType=TIMESTAMP},
+        del_status = #{delStatus,jdbcType=INTEGER}
+        where init_id = #{initId,jdbcType=INTEGER}
+    </update>
+
+    <select id="selectHotelRoomList" resultType="TbRoomTypeInit">
+        select distinct ti.type_id typeId, trt.type_name typeName, max(ti.num_rooms) numRooms,
+        min(ti.num_retain_rooms) numRetainRooms,
+        max(ti.price) price,max(ti.sale_price) salePrice, ti.comment comment,trt.bad_type badType,trt.breakfast
+        breakfast,trt.network network,
+        trt.floor floor,trt.type_note typeNote,
+        trt.price_note priceNote,
+        trt.price_1 price1, trt.price_2 price2,trt.sale_price_1 salePrice1,
+        trt.sale_price_2 salePrice2,
+        min(ti.per_status) perStatus
+        from tb_room_type_init ti
+        left join tb_room_type trt on ti.type_id = trt.type_id
+        where ti.del_status = 1
+        and trt.del_status = 1
+        and ti.room_date BETWEEN #{startDate} and #{endDate}
+        <if test="typeId!= null and typeId > 0">
+            and ti.type_id = #{typeId}
+        </if>
+        and trt.env = #{env}
+        group by ti.type_id ,ti.type_name
+    </select>
+
+    <select id="getAllInitList" resultType="TbRoomTypeInit" parameterType="TbOrder">
+        select ti.init_id initId, ti.type_id typeId, trt.type_name typeName, ti.num_rooms numRooms,
+        ti.num_retain_rooms numRetainRooms,
+        ti.price price,ti.sale_price salePrice, ti.comment comment,trt.bad_type badType,trt.breakfast
+        breakfast,trt.network network,
+        trt.floor floor,trt.type_note typeNote,
+        trt.price_note priceNote,
+        trt.price_1 price1, trt.price_2 price2,trt.sale_price_1 salePrice1,
+        trt.sale_price_2 salePrice2,
+        ti.per_status perStatus
+        from tb_room_type_init ti
+        left join tb_room_type trt on ti.type_id = trt.type_id
+        where ti.del_status = 1
+        and trt.del_status = 1
+        and ti.room_date BETWEEN #{startDate} and #{endDate}
+        <if test="typeId!= null and typeId > 0">
+            and ti.type_id = #{typeId}
+        </if>
+        and trt.env = #{env}
+    </select>
+
+    <update id="updateOrderNum" parameterType="TbOrder">
+        update tb_room_type_init set  num_retain_rooms = #{numRetainRooms} where init_id = #{initId}
+    </update>
+
+    <select id="getLastInit" parameterType="tbRoomType" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from tb_room_type_init
+        where type_id = #{typeId}
+        and del_status = 1
+        order by room_date desc
+        limit 1
+    </select>
+
+    <insert id="batchInsert" parameterType="tbRoomTypeInit">
+    INSERT INTO tb_room_type_init (type_id,type_name,num_rooms,num_retain_rooms,room_date,COMMENT,per_status,c_time,u_time,del_status,price_1,price_2,
+    sale_price_1,sale_price_2,price_note,bad_type,breakfast,network,floor,type_note ) SELECT type_id, type_name,num_rooms,	num_rooms,#{roomDate},
+    COMMENT,1,now(), now(), 1, price_1,price_2,sale_price_1,sale_price_2,price_note,bad_type,breakfast,network,floor,type_note
+    FROM tb_room_type WHERE del_status = 1;
+   </insert>
+
+    <select id="selectRoomCountByPage" resultType="int" parameterType="RoomQueryParam">
+        select count(ti.init_id)
+        from tb_room_type_init ti
+        left join tb_room_type trt on ti.type_id = trt.type_id
+        where ti.del_status = 1
+        and trt.env = 'cn'
+        <if test="typeId != null and typeId > 0">
+            and ti.type_id = #{typeId}
+        </if>
+        <if test="orderStartDate!= null and orderStartDate != ''">
+            and <![CDATA[ti.room_date >= #{orderStartDate}]]>
+        </if>
+        <if test="orderEndDate!= null and orderEndDate != ''">
+            and <![CDATA[ti.room_date <= #{orderEndDate}]]>
+        </if>
+        <if test="perStatus!= null and perStatus >=0 ">
+            and ti.per_status = #{perStatus}
+        </if>
+    </select>
+
+    <select id="selectRoomListByPage" resultType="tbRoomTypeInit" parameterType="RoomQueryParam">
+        select ti.init_id initId, ti.type_id typeId, trt.type_name typeName, ti.num_rooms numRooms,
+        ti.num_retain_rooms numRetainRooms,
+        ti.price price,ti.sale_price salePrice, ti.comment comment,trt.bad_type badType,trt.breakfast
+        breakfast,trt.network network,
+        trt.floor floor,trt.type_note typeNote,
+        trt.price_note priceNote,
+        trt.price_1 price1, trt.price_2 price2,trt.sale_price_1 salePrice1,
+        trt.sale_price_2 salePrice2,
+        ti.per_status perStatus,
+        ti.room_date roomDate
+        from tb_room_type_init ti
+        left join tb_room_type trt on ti.type_id = trt.type_id
+        where ti.del_status = 1
+        and trt.env = 'cn'
+        <if test="typeId != null and typeId > 0">
+            and ti.type_id = #{typeId}
+        </if>
+        <if test="orderStartDate!= null and orderStartDate != ''">
+            and <![CDATA[ti.room_date >= #{orderStartDate}]]>
+        </if>
+
+        <if test="orderEndDate!= null and orderEndDate != ''">
+            and <![CDATA[ti.room_date <= #{orderEndDate}]]>
+        </if>
+
+        <if test="perStatus!= null and perStatus >=0 ">
+            and ti.per_status = #{perStatus}
+        </if>
+        order by init_id desc
+        limit #{start} , #{limit}
+    </select>
+
+</mapper>

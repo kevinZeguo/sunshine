@@ -1,0 +1,30 @@
+\ufeff#SESSION
+sessionVersion=sessionVersion
+#
+templatepath=docTemp
+#
+uploadpath=upload
+
+webUploadpath=D://upFiles
+showAndDownUrl=systemController/showOrDownByurl.do?dbPath=
+
+office_home=D://OpenOffice
+
+#DEV(\u5f00\u53d1\u6a21\u5f0f)/PUB(\u751f\u4ea7\u6a21\u5f0f)
+sqlReadMode=PUB
+
+#auto scan menu flag true or false
+auto.scan.menu.flag=false
+
+# \u9a8c\u8bc1\u7801\u914d\u7f6e
+# \u9a8c\u8bc1\u7801\u957f\u5ea6
+randCodeLength=4
+# \u9a8c\u8bc1\u7801\u7c7b\u578b\uff1a1-\u6570\u5b57\uff0c2-\u5c0f\u5199\u5b57\u6bcd\uff0c3-\u5927\u5199\u5b57\u7b26\uff0c4-\u5b57\u7b26,5-\u6df7\u5408\u5b57\u7b26\u4e32\uff0c
+randCodeType=5
+
+# \u7ec4\u7ec7\u7ed3\u6784\u7f16\u7801\u957f\u5ea6\u7c7b\u578b\uff1a2-\u4e24\u4f4d\u6570\u5b57\u30013-3\u4e3a\u6570\u5b57\uff0c\u5982\u679c\u7c7b\u578b\u4e0d\u662f2\u6216\u80053\uff0c\u5219\u957f\u5ea6\u9ed8\u8ba4\u4e3a\u4e24\u4f4d\uff1b
+orgCodeLengthType=2
+# \u7c7b\u578b\u7ed3\u6784\u7f16\u7801\u957f\u5ea6\u7c7b\u578b\uff1a2-\u4e24\u4f4d\u6570\u5b57\u30013-3\u4f4d\u6570\u5b57\u4f9d\u6b21\u7c7b\u63a8,\u6700\u4f4e2\u4f4d
+categoryCodeLengthType=2
+
+

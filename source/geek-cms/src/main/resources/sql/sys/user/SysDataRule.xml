@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.beijing.geek.cms.sys.dao.user.SysDataRuleDao" >
+  <resultMap id="BaseResultMap" type="com.beijing.geek.cms.sys.domain.user.SysDataRule" >
+
+    <id column="data_rule_id" property="dataRuleId" jdbcType="INTEGER" />
+    <result column="rule_name" property="ruleName" jdbcType="VARCHAR" />
+    <result column="rule_column" property="ruleColumn" jdbcType="VARCHAR" />
+    <result column="rule_conditions" property="ruleConditions" jdbcType="VARCHAR" />
+    <result column="rule_value" property="ruleValue" jdbcType="VARCHAR" />
+    <result column="function_Id" property="functionId" jdbcType="VARCHAR" />
+    <result column="creator" property="creator" jdbcType="INTEGER" />
+    <result column="created" property="created" jdbcType="TIMESTAMP" />
+    <result column="modifier" property="modifier" jdbcType="INTEGER" />
+    <result column="modified" property="modified" jdbcType="TIMESTAMP" />
+    <result column="deleted" property="deleted" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+
+    data_rule_id, rule_name, rule_column, rule_conditions, rule_value, function_Id, creator, 
+    created, modifier, modified, deleted
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+
+    select 
+    <include refid="Base_Column_List" />
+    from sys_data_rule
+    where data_rule_id = #{dataRuleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Integer" >
+
+    delete from sys_data_rule
+    where data_rule_id = #{dataRuleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.beijing.geek.cms.sys.domain.user.SysDataRule" >
+
+    insert into sys_data_rule (data_rule_id, rule_name, rule_column, 
+      rule_conditions, rule_value, function_Id, 
+      creator, created, modifier, 
+      modified, deleted)
+    values (#{dataRuleId,jdbcType=INTEGER}, #{ruleName,jdbcType=VARCHAR}, #{ruleColumn,jdbcType=VARCHAR}, 
+      #{ruleConditions,jdbcType=VARCHAR}, #{ruleValue,jdbcType=VARCHAR}, #{functionId,jdbcType=VARCHAR}, 
+      #{creator,jdbcType=INTEGER}, #{created,jdbcType=TIMESTAMP}, #{modifier,jdbcType=INTEGER}, 
+      #{modified,jdbcType=TIMESTAMP}, #{deleted,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="com.beijing.geek.cms.sys.domain.user.SysDataRule" >
+
+    insert into sys_data_rule
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="dataRuleId != null" >
+        data_rule_id,
+      </if>
+      <if test="ruleName != null" >
+        rule_name,
+      </if>
+      <if test="ruleColumn != null" >
+        rule_column,
+      </if>
+      <if test="ruleConditions != null" >
+        rule_conditions,
+      </if>
+      <if test="ruleValue != null" >
+        rule_value,
+      </if>
+      <if test="functionId != null" >
+        function_Id,
+      </if>
+      <if test="creator != null" >
+        creator,
+      </if>
+      <if test="created != null" >
+        created,
+      </if>
+      <if test="modifier != null" >
+        modifier,
+      </if>
+      <if test="modified != null" >
+        modified,
+      </if>
+      <if test="deleted != null" >
+        deleted,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="dataRuleId != null" >
+        #{dataRuleId,jdbcType=INTEGER},
+      </if>
+      <if test="ruleName != null" >
+        #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleColumn != null" >
+        #{ruleColumn,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleConditions != null" >
+        #{ruleConditions,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleValue != null" >
+        #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null" >
+        #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        #{deleted,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdSelective" parameterType="com.beijing.geek.cms.sys.domain.user.SysDataRule" >
+
+    update sys_data_rule
+    <set >
+      <if test="ruleName != null" >
+        rule_name = #{ruleName,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleColumn != null" >
+        rule_column = #{ruleColumn,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleConditions != null" >
+        rule_conditions = #{ruleConditions,jdbcType=VARCHAR},
+      </if>
+      <if test="ruleValue != null" >
+        rule_value = #{ruleValue,jdbcType=VARCHAR},
+      </if>
+      <if test="functionId != null" >
+        function_Id = #{functionId,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null" >
+        creator = #{creator,jdbcType=INTEGER},
+      </if>
+      <if test="created != null" >
+        created = #{created,jdbcType=TIMESTAMP},
+      </if>
+      <if test="modifier != null" >
+        modifier = #{modifier,jdbcType=INTEGER},
+      </if>
+      <if test="modified != null" >
+        modified = #{modified,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deleted != null" >
+        deleted = #{deleted,jdbcType=INTEGER},
+      </if>
+    </set>
+    where data_rule_id = #{dataRuleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateById" parameterType="com.beijing.geek.cms.sys.domain.user.SysDataRule" >
+
+    update sys_data_rule
+    set rule_name = #{ruleName,jdbcType=VARCHAR},
+      rule_column = #{ruleColumn,jdbcType=VARCHAR},
+      rule_conditions = #{ruleConditions,jdbcType=VARCHAR},
+      rule_value = #{ruleValue,jdbcType=VARCHAR},
+      function_Id = #{functionId,jdbcType=VARCHAR},
+      creator = #{creator,jdbcType=INTEGER},
+      created = #{created,jdbcType=TIMESTAMP},
+      modifier = #{modifier,jdbcType=INTEGER},
+      modified = #{modified,jdbcType=TIMESTAMP},
+      deleted = #{deleted,jdbcType=INTEGER}
+    where data_rule_id = #{dataRuleId,jdbcType=INTEGER}
+  </update>
+</mapper>
